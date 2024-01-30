@@ -1,6 +1,6 @@
-# Flask React Project
+# Gammazon
 
-This is the starter for the Flask React project.
+Gammazon is an e-commerce website that sells a variety of lesser known items.
 
 ## Getting started
 
@@ -129,3 +129,6 @@ main, always keeping it up to date.
 
 [Render.com]: https://render.com/
 [Dashboard]: https://dashboard.render.com/
+
+# Link to Live Site
+(to be added)
