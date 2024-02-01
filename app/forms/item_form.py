@@ -9,7 +9,7 @@ class ItemForm(FlaskForm):
   category_id = IntegerField('Category Id', validators=[DataRequired()])
   name = StringField('Product Name', validators=[DataRequired()])
   image = FileField("Image",validators=[FileAllowed(list(ALLOWED_EXTENSIONS)), FileRequired()])
-  name = StringField('Product Name', validators=[DataRequired()])
+  description = StringField('Description', validators=[DataRequired()])
   price = IntegerField('Price', validators=[DataRequired()])
   created_at = DateTimeField('Current Date', validators=[DataRequired()])
   submit = SubmitField("Create Product Listing")
