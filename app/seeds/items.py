@@ -12,8 +12,38 @@ def seed_items():
     price = 8.63,
     created_at = datetime.now()
   )
+  item2 = Item(
+    user_id = 2,
+    category_id = 1,
+    name = 'Projection Alarm Clock',
+    image = 'https://gammazon-767398031119.s3.us-west-1.amazonaws.com/ele-clock.jpg',
+    description = 'Digital alarm clock with built-in button batter, curved screen, and clear projection that is perfect for any bedroom.',
+    price = 20.32,
+    created_at = datetime.now()
+  )
+  item3 = Item(
+    user_id = 1,
+    category_id = 1,
+    name = 'Electronic Hammer',
+    image = 'https://gammazon-767398031119.s3.us-west-1.amazonaws.com/ele-hammer.jpg',
+    description = 'Never tire again when using a hammer! The electronic hammer makes any job easier and makes a perfect gift for family and friends.',
+    price = 23.54,
+    created_at = datetime.now()
+  )
+  item4 = Item(
+    user_id = 1,
+    category_id = 3,
+    name = 'Harmonica',
+    image = 'https://gammazon-767398031119.s3.us-west-1.amazonaws.com/harmonica.jpg',
+    description = 'A classic harmonica perfect for all ages.',
+    price = 10.52,
+    created_at = datetime.now()
+  )
 
   db.session.add(item1)
+  db.session.add(item2)
+  db.session.add(item3)
+  db.session.add(item4)
   db.session.commit()
 
 def undo_items():
