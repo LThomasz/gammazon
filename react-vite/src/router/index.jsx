@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
+import AllItems from '../components/AllItems/AllItems';
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "products",
-        element: <h1>Placeholder for all products page</h1>
+        element: <AllItems />
       },
       {
         path: "products/:productId",
