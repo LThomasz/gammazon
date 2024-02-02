@@ -3,7 +3,7 @@ import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
 import AllItems from '../components/AllItems/AllItems';
-
+import SingleItem from '../components/SingleItem/SingleItem'
 export const router = createBrowserRouter([
   {
     element: <Layout />,
@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "products/:productId",
-        element: <h1>Placeholder for single product page</h1>
+        element: <SingleItem />
       },
       {
         path: "products/:productId/edit",
