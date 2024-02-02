@@ -42,3 +42,10 @@ def editReview():
     db.session.commit()
     return redirect('/api/reviews')
   return 'Bad Data'
+
+@review_routes.route('/<int:id>/delete', methods=['DELETE'])
+def deleteReview():
+  review = Review.query.get(id)
+  db.session.delete(review)
+  db.session.commit()
+  return 'Success!'
