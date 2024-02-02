@@ -2,7 +2,7 @@ import { useState } from "react";
 import { thunkLogin } from "../../redux/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
-import "./LoginForm.css";
+import "./LoginFormPage.css";
 
 function LoginFormPage() {
   const navigate = useNavigate();
@@ -32,34 +32,38 @@ function LoginFormPage() {
   };
 
   return (
-    <>
-      <h1>Log In</h1>
+    <div className="log-main-container">
+    <div className="log-in-container">
+      <h1 className="log-in-header">Log In</h1>
       {errors.length > 0 &&
         errors.map((message) => <p key={message}>{message}</p>)}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="log-in-form">
         <label>
           Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
         </label>
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
         {errors.email && <p>{errors.email}</p>}
         <label>
           Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
         </label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
         {errors.password && <p>{errors.password}</p>}
-        <button type="submit">Log In</button>
+        <div className="log-in-button-div">
+          <button type="submit" className="log-in-button">Log In</button>
+        </div>
       </form>
-    </>
+    </div>
+    </div>
   );
 }
 
