@@ -19,9 +19,10 @@ def newItem():
 def newItemSub():
   form = ItemForm()
   form['csrf_token'].data = request.cookies['csrf_token']
+  print(form.data)
   if form.validate_on_submit():
     data = form.data
-    form.image.filename = get_unique_filename_img(form.image.data.filename)
+    form.image.data.filename = get_unique_filename_img(form.image.data.filename)
     newItem = Item(user_id=data['user_id'],
                    category_id=data['category_id'],
                    name=data['name'],
@@ -31,11 +32,12 @@ def newItemSub():
                    created_at=data['created_at'])
     db.session.add(newItem)
     db.session.commit()
-    return redirect('/api/items')
+    return newItem.to_dict()
   return 'Bad Data'
 
 @item_routes.route('/<int:itemId>')
 def singleItem(itemId):
+  print("0------------------------------------------------------------------------")
   item = Item.query.get(itemId)
   return item.to_dict()
 

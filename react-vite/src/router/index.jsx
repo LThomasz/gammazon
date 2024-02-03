@@ -4,6 +4,7 @@ import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
 import AllItems from '../components/AllItems/AllItems';
 import SingleItem from '../components/SingleItem/SingleItem'
+import CreateItem from '../components/CreateItem/CreateItem';
 export const router = createBrowserRouter([
   {
     element: <Layout />,
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "new-product",
-        element: <h1>Placeholder for create product page</h1>
+        element: <CreateItem />
       },
       {
         path: "products",

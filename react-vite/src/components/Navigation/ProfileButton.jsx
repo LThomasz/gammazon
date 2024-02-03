@@ -4,7 +4,7 @@ import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
-
+import "./Navigation.css"
 function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -49,6 +49,7 @@ function ProfileButton() {
             <>
               <span className="profile-user-info">{user.username}</span>
               <span className="profile-user-info">{user.email}</span>
+              <span><hr /></span>
               <span className="button-divider">
                 <button onClick={logout} className="logout-button">Log Out</button>
               </span>

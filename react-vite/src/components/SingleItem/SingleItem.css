@@ -1,0 +1,11 @@
+.single-main-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.single-child-container {
+  display: flex;
+  flex-direction: row;
+
+}

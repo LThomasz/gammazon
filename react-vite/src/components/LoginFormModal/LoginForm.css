@@ -1,0 +1,49 @@
+.log-in-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 360px;
+  height: 340px;
+}
+
+.log-in-form {
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+}
+
+.log-in-form > input {
+  margin-top: 5px;
+  padding: 8px 3px;
+  border: 1px #b3b3b3 solid;
+  color: rgb(66, 64, 64);
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.log-in-header {
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  width: 330px;
+}
+
+.log-in-button-div {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.log-in-button {
+  padding: 10px 130px;
+  background-color: #fcd80f;
+  border-radius: 4px;
+  border: 1px solid grey;
+  color: black;
+  font-size: 15px;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  width: 330px;
+}

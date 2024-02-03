@@ -33,19 +33,9 @@ function Navigation() {
     <>
       <div className="top-bar">
         <div className="nav-bar">
-          {!sessionUser && (
-            <>
-            <span className="sign-up" onClick={() => navigate("/signup")}>Sign Up</span>
-            <button className='login-button' type="button" onClick={() => navigate("/login")}>
-              Log In
-            </button>
-            </>
-          )}
-          {sessionUser && (
-            <span>
-              <ProfileButton />
-            </span>
-          )}
+          <span>
+            <ProfileButton />
+          </span>
         </div>
       </div>
     </>

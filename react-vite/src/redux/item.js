@@ -88,6 +88,9 @@ export const addItemThunk = (item) => async (dispatch) => {
     dispatch(addItem(data))
     return data
   }
+  const data = await res.json();
+  console.log(data)
+
 }
 
 export const editItemThunk = (item, itemId) => async (dispatch) => {
@@ -127,27 +130,27 @@ const itemReducer = (state = initialState, action) => {
         return newState;
       }
       case LOAD_ONE_ITEM: {
-        const newState = { };
-
+        const newState = { [action.item.id]: action.item };
         return newState;
       }
       case LOAD_USER_ITEMS: {
         const newState = { }
-
+        action.items.items.forEach(el => {
+          newState[el.id] = el
+        });
         return newState
       }
       case ADD_ITEM: {
-        const newState = { ...state }
-
+        const newState = { ...state, [action.item.id]: action.item }
         return newState;
       }
       case EDIT_ITEM: {
-        const newState = { ...state }
-
-        return newState
+        const newState = { ...state, [action.item.id]: action.item }
+        return newState;
       }
       case DELETE_ITEM: {
-        const newState = { ...state }
+        const newState = { ...state };
+        delete newState[action.itemId]
         return newState;
       }
       default:

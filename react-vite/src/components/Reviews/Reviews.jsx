@@ -6,7 +6,11 @@ import "./Reviews.css"
 function Reviews() {
   return (
     <div>Review Section</div>
+
+
   )
 }
+
+
 
 export default Reviews

@@ -7,16 +7,16 @@ import "./CreateItem.css"
 export default function CreateItem() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const categories = ['Electronics', 'Books', 'Musical Instruments']
   const [category, setCategory] = useState(0)
   const [name, setName] = useState("")
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState(null)
   const [description, setDescription] = useState("")
   const [price, setPrice] = useState(null)
   const [imageLoading, setImageLoading] = useState(false);
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
-
+  const user = useSelector(state => state.session.user)
   useEffect(() => {
     const errors = {};
 
@@ -48,7 +48,6 @@ export default function CreateItem() {
       errors.price = "Price cannot be negative"
     }
 
-
   })
 
   const handleSubmit = async (e) => {
@@ -56,6 +55,21 @@ export default function CreateItem() {
 
     setSubmitted(true)
 
+    const formData = new FormData();
+    formData.append("user_id", user.id);
+    formData.append("category_id", 1);
+    formData.append("name", name);
+    formData.append("image", image);
+    formData.append("description", description);
+    formData.append("price", price);
+
+    setImageLoading(true);
+
+    for (let i of formData.entries()) {
+      console.log(i[0]+ ', ' + i[1])
+    }
+
+    await dispatch(addItemThunk(formData))
   }
 
   return (
@@ -71,11 +85,11 @@ export default function CreateItem() {
           <div className="form-el">
             <p>Product Category</p>
             {submitted && errors.category && <p style={{color: 'red'}}>{errors.category}</p>}
-            <input
-              type="number"
-              className="product-category product-input"
-              onChange={(e) => setCategory(e.target.value)}
-            />
+            <select onChange={(e) => setCategory(e.target.value)}>
+              <option value='1'>Electronics</option>
+              <option value='2'>Books</option>
+              <option value='3'>Musical Instruments</option>
+            </select>
           </div>
           <div className="form-el">
             <p>Product Name</p>
@@ -93,7 +107,7 @@ export default function CreateItem() {
               type="file"
               accept="image/*"
               className="product-image product-input"
-              onChange={(e) => setImage(e.target.value)}
+              onChange={(e) => setImage(e.target.files[0])}
             />
           </div>
           <div className="form-el">

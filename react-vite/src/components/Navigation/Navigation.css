@@ -1,3 +1,40 @@
 .profile-dropdown {
   position: absolute;
+  top: 34px;
+  right: 30px;
+  background-color: #c4bdbd;
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  /* gap: 10px; */
+  border-radius: 3px;
+}
+
+.profile-user-info {
+  cursor: default;
+  font-size: 15px;
+  padding: 10px 70px 10px 20px;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: #ffffff;
+  padding: 14px 30px;
+  margin-left: 288px;
+}
+
+li {
+  list-style-type: none
 }
