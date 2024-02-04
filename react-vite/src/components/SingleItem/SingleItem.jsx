@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
 import { loadOneItemThunk } from "../../redux/item"
+import Reviews from "../Reviews/Reviews";
 import './SingleItem.css'
 
 function SingleItem() {
@@ -19,7 +20,7 @@ function SingleItem() {
     <div className="single-main-container">
       <div className="single-child-container">
         <div className="single-image-container">
-          <img src={`${item?.image}`} alt="" />
+            <img src={`${item?.image}`} alt="" />
         </div>
         <div className="single-info-container">
           <h2>{`${item?.name}`}</h2>
@@ -29,7 +30,7 @@ function SingleItem() {
         </div>
       </div>
       <div>
-        {/* Reviews go here */}
+        <Reviews itemId={productId}/>
       </div>
     </div>
   )
