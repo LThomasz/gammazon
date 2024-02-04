@@ -4,9 +4,9 @@ from app.forms.review_form import ReviewForm
 
 review_routes = Blueprint('review', __name__ )
 
-@review_routes.route('/')
-def reviews():
-  all_reviews = Review.query.all()
+@review_routes.route('/<int:id>')
+def reviews(id):
+  all_reviews = Review.query.filter(Review.item_id == id)
   return {'reviews': [review.to_dict() for review in all_reviews]}
 
 @review_routes.route('/new-review', methods=['GET', 'POST'])

@@ -9,8 +9,8 @@ def seed_reviews():
     item_id = 1,
     rating = 4,
     review = 'Great story I remember reading it in school as a kid',
-    created_at = datetime.utcnow,
-    updated_at = datetime.utcnow
+    created_at = datetime.now(),
+    updated_at = datetime.now()
   )
 
   db.session.add(review1)

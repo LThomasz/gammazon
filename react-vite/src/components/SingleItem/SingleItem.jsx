@@ -28,6 +28,9 @@ function SingleItem() {
           <p>{`${item?.description}`}</p>
         </div>
       </div>
+      <div>
+        {/* Reviews go here */}
+      </div>
     </div>
   )
 }

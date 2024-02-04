@@ -27,13 +27,13 @@ const editReview = (reviewId) => {
 
 const deleteReview = (reviewId) => {
   return {
-    type: DELETE_REVIEWS,
+    type: DELETE_REVIEW,
     reviewId
   }
 }
 
-export const loadReviewsThunk = () => async (dispatch) => {
-  const res = await fetch('/api/reviews')
+export const loadReviewsThunk = (itemId) => async (dispatch) => {
+  const res = await fetch(`/api/reviews/${itemId}`)
 
   if (res.ok) {
     const data = await res.json();
@@ -85,8 +85,8 @@ const initialState = {}
 const reviewReducer = (state = initialState, action) => {
   switch (action.type) {
       case LOAD_REVIEWS: {
-        const newState = { };
-        action.items.items.forEach(el => {
+        const newState = { ...state };
+        action.reviews.reviews.forEach(el => {
           newState[el.id] = el
         });
         return newState;
