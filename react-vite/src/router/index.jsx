@@ -6,6 +6,7 @@ import AllItems from '../components/AllItems/AllItems';
 import SingleItem from '../components/SingleItem/SingleItem'
 import CreateItem from '../components/CreateItem/CreateItem';
 import Reviews from '../components/Reviews/Reviews'
+import EditItem from '../components/EditItem/EditItem';
 export const router = createBrowserRouter([
   {
     element: <Layout />,
@@ -36,7 +37,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "products/:productId/edit",
-        element: <h1>Placeholder for product edit page</h1>
+        element: <EditItem />
       },
       {
         path: "my-products",

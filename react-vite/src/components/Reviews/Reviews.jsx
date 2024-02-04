@@ -1,21 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { loadReviewsThunk } from "../../redux/review";
-import { useEffect } from "react";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import "./Reviews.css"
 import { useNavigate } from "react-router-dom";
 
 
-function Reviews({itemId}) {
+function Reviews({reviews}) {
   const dispatch = useDispatch();
-  const reviewsObj = useSelector((state) => state.reviews)
   const navigate = useNavigate()
-  const reviews = Object.values(reviewsObj)
-  useEffect(() => {
-    dispatch(loadReviewsThunk(itemId))
-  }, [dispatch])
 
-  console.log(reviews)
   return (
     <div>
       {reviews?.map((rev) => {

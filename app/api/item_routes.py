@@ -37,7 +37,6 @@ def newItemSub():
 
 @item_routes.route('/<int:itemId>')
 def singleItem(itemId):
-  print("0------------------------------------------------------------------------")
   item = Item.query.get(itemId)
   return item.to_dict()
 
