@@ -1,25 +1,25 @@
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { editItemThunk, loadOneItemThunk } from "../../redux/item"
+import { useLocation, useParams } from "react-router-dom";
 import './EditItem.css'
-import { useParams } from "react-router-dom";
 
 export default function EditItem() {
   const dispatch = useDispatch();
+  const {state} = useLocation()
   const categories = ['Electronics', 'Books', 'Musical Instruments']
   const {productId} = useParams();
   const user = useSelector(state => state.session.user)
-  const itemsObj = useSelector(state => state.items)
-  const item = Object.values(itemsObj)[0]
-  console.log(item.name)
   const [category, setCategory] = useState(0)
-  const [name, setName] = useState(`${item?.name}`)
-  const [image, setImage] = useState(null)
-  const [description, setDescription] = useState("")
-  const [price, setPrice] = useState(null)
+  const [name, setName] = useState(`${state.fromUI.item.name}`)
+  const [image, setImage] = useState(`${state.fromUI.item.image}`)
+  const [description, setDescription] = useState(`${state.fromUI.item.description}`)
+  const [price, setPrice] = useState(`${state.fromUI.item.price}`)
   const [imageLoading, setImageLoading] = useState(false);
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
+  console.log(state)
+
   useEffect(() => {
     const errors = {};
 
@@ -102,6 +102,7 @@ export default function EditItem() {
             {submitted && errors.name && <p style={{color: 'red'}}>{errors.name}</p>}
             <input
               type="text"
+              value={name}
               className="product-name product-input"
               onChange={(e) => setName(e.target.value)}
             />
@@ -111,6 +112,7 @@ export default function EditItem() {
             {submitted && errors.image && <p style={{color: 'red'}}>{errors.image}</p>}
             <input
               type="file"
+
               accept="image/*"
               className="product-image product-input"
               onChange={(e) => setImage(e.target.files[0])}
@@ -121,6 +123,7 @@ export default function EditItem() {
             {submitted && errors.description && <p style={{color: 'red'}}>{errors.description}</p>}
             <input
               type="text-area"
+              value={description}
               className="product-description product-input"
               onChange={(e) => setDescription(e.target.value)}
             />
@@ -130,6 +133,7 @@ export default function EditItem() {
             {submitted && errors.price && <p style={{color: 'red'}}>{errors.price}</p>}
             <input
               type="number"
+              value={price}
               className="product-price product-input"
               onChange={(e) => setPrice(e.target.value)}
             />
@@ -138,7 +142,7 @@ export default function EditItem() {
             <button
               className="product-butt"
               type="submit"
-            > Create Product Listing</button>
+            > Update Product Listing</button>
           </div>
           {(imageLoading) && <p className="loading-text">Loading...</p>}
         </form>

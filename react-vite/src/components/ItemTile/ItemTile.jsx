@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "./ItemTile.css"
 
 function ItemTile({item}) {
