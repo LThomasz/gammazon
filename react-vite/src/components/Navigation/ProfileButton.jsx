@@ -5,11 +5,13 @@ import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import "./Navigation.css"
+import { useNavigate } from "react-router-dom";
 function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((store) => store.session.user);
   const ulRef = useRef();
+  const navigate = useNavigate();
 
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
@@ -49,6 +51,8 @@ function ProfileButton() {
             <>
               <span className="profile-user-info">{user.username}</span>
               <span className="profile-user-info">{user.email}</span>
+              <span><hr /></span>
+              <span className="profile-user-info" onClick={() => navigate(`/my-products`)}>Manage Products</span>
               <span><hr /></span>
               <span className="button-divider">
                 <button onClick={logout} className="logout-button">Log Out</button>

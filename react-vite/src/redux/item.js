@@ -33,10 +33,10 @@ const addItem = (item) => {
   }
 }
 
-const editItem = (itemId) => {
+const editItem = (item) => {
   return {
     type: EDIT_ITEM,
-    itemId
+    item
   }
 }
 
@@ -104,6 +104,8 @@ export const editItemThunk = (item, itemId) => async (dispatch) => {
     dispatch(editItem(data))
     return data
   }
+  const data = await res.json()
+  console.log(data)
 }
 
 export const deleteItemThunk = (itemId) => async (dispatch) => {

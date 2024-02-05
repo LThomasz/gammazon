@@ -44,10 +44,11 @@ def singleItem(itemId):
 def editItem(itemId):
   form = ItemForm()
   form['csrf_token'].data = request.cookies['csrf_token']
+  print(form.data)
   if form.validate_on_submit():
     oldItem = Item.query.get(itemId)
     data = form.data
-    form.image.filename.data.filename = get_unique_filename_img(form.image.data.filename)
+    form.image.data.filename = get_unique_filename_img(form.image.data.filename)
     oldItem.user_id = data['user_id']
     oldItem.category_id = data['category_id']
     oldItem.name = data['name']
@@ -55,8 +56,8 @@ def editItem(itemId):
     oldItem.description = data['description']
     oldItem.price = data['price']
     db.session.commit()
-    return redirect('/api/items')
-  return 'Bad Data'
+    return oldItem.to_dict()
+  return form.errors
 
 @item_routes.route('/<int:itemId>', methods=['DELETE'])
 def deleteItem(itemId):

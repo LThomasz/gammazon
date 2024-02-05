@@ -65,9 +65,9 @@ export default function CreateItem() {
 
     setImageLoading(true);
 
-    for (let i of formData.entries()) {
-      console.log(i[0]+ ', ' + i[1])
-    }
+    // for (let i of formData.entries()) {
+    //   console.log(i[0]+ ', ' + i[1])
+    // }
 
     await dispatch(addItemThunk(formData))
   }

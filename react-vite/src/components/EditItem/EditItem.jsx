@@ -14,7 +14,7 @@ export default function EditItem() {
   const [name, setName] = useState(`${state.fromUI.item.name}`)
   const [image, setImage] = useState(`${state.fromUI.item.image}`)
   const [description, setDescription] = useState(`${state.fromUI.item.description}`)
-  const [price, setPrice] = useState(`${state.fromUI.item.price}`)
+  const [price, setPrice] = useState(parseInt(`${state.fromUI.item.price}`))
   const [imageLoading, setImageLoading] = useState(false);
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
@@ -83,7 +83,7 @@ export default function EditItem() {
       <div className="product-form-container">
         <h1>Edit product listing</h1>
         <form
-          action="/api/items"
+          action={`/api/items/${productId}/edit`}
           onSubmit={handleSubmit}
           className="product-form"
           encType="multipart/form-data"

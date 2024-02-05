@@ -13,6 +13,7 @@ def reviews(id):
 def newReview():
   form = ReviewForm()
   form['csrf_token'].data = request.cookies['csrf_token']
+  print(form.data)
   if form.validate_on_submit():
     data = form.data
     newReview = Review(user_id = data['user_id'],
@@ -23,11 +24,11 @@ def newReview():
                        updated_at = data['updated_at'])
     db.session.add(newReview)
     db.session.commit()
-    return redirect('/api/reviews')
+    return newReview.to_dict()
   return 'Bad Data'
 
 @review_routes.route('/<int:id>/edit', methods=['PUT'])
-def editReview():
+def editReview(id):
   form = ReviewForm()
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
@@ -44,8 +45,8 @@ def editReview():
   return 'Bad Data'
 
 @review_routes.route('/<int:id>/delete', methods=['DELETE'])
-def deleteReview():
+def deleteReview(id):
   review = Review.query.get(id)
   db.session.delete(review)
   db.session.commit()
-  return 'Success!'
+  return review.to_dict()
