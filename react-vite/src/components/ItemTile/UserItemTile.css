@@ -1,0 +1,9 @@
+.useritem-tile-container {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.useritem-image {
+  width: 100%;
+}

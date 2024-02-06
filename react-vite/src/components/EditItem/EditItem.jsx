@@ -79,16 +79,16 @@ export default function EditItem() {
   }
 
   return (
-    <div className="create-product-container">
-      <div className="product-form-container">
-        <h1>Edit product listing</h1>
+    <div className="edit-product-container">
+      <div className="edit-product-form-container">
+        <h1 className="edit-header">Edit product listing</h1>
         <form
           action={`/api/items/${productId}/edit`}
           onSubmit={handleSubmit}
-          className="product-form"
+          className="edit-product-form"
           encType="multipart/form-data"
         >
-          <div className="form-el">
+          <div className="edit-form-el">
             <p>Product Category</p>
             {submitted && errors.category && <p style={{color: 'red'}}>{errors.category}</p>}
             <select onChange={(e) => setCategory(e.target.value)}>
@@ -97,7 +97,7 @@ export default function EditItem() {
               <option value='3'>Musical Instruments</option>
             </select>
           </div>
-          <div className="form-el">
+          <div className="edit-form-el">
             <p>Product Name</p>
             {submitted && errors.name && <p style={{color: 'red'}}>{errors.name}</p>}
             <input
@@ -107,7 +107,7 @@ export default function EditItem() {
               onChange={(e) => setName(e.target.value)}
             />
           </div>
-          <div className="form-el">
+          <div className="edit-form-el">
             <p>Product Image</p>
             {submitted && errors.image && <p style={{color: 'red'}}>{errors.image}</p>}
             <input
@@ -118,7 +118,7 @@ export default function EditItem() {
               onChange={(e) => setImage(e.target.files[0])}
             />
           </div>
-          <div className="form-el">
+          <div className="edit-form-el">
             <p>Product Description</p>
             {submitted && errors.description && <p style={{color: 'red'}}>{errors.description}</p>}
             <input
@@ -128,7 +128,7 @@ export default function EditItem() {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          <div className="form-el">
+          <div className="edit-form-el">
             <p>Product Price</p>
             {submitted && errors.price && <p style={{color: 'red'}}>{errors.price}</p>}
             <input
@@ -138,9 +138,9 @@ export default function EditItem() {
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
-          <div className="create-product-button">
+          <div className="edit-product-button">
             <button
-              className="product-butt"
+              className="edit-product-butt"
               type="submit"
             > Update Product Listing</button>
           </div>

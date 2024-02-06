@@ -4,7 +4,7 @@ import "./Reviews.css"
 import { useNavigate } from "react-router-dom";
 import AddReview from "./AddReview";
 import DeleteReview from "./DeleteReview"
-function Reviews({reviews}) {
+function Reviews({reviews, change}) {
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const user = useSelector((state) => state.session.user)
@@ -41,7 +41,7 @@ function Reviews({reviews}) {
           <p>{`${rev?.created_at}`}</p>
           <p>{`${rev?.review}`}</p>
           { user && user.id == rev.user_id && <div className="delete-button">
-            <DeleteReview reviewId={rev.id} itemId={item?.id}/>
+            <DeleteReview reviewId={rev.id} itemId={item?.id} change={change}/>
           </div>}
         </div>
         )

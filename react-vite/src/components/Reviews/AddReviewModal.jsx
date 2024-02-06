@@ -29,7 +29,7 @@ export default function AddReviewModal({itemId}) {
     //   console.log(i[0]+ ', ' + i[1])
     // }
 
-    await dispatch(addReviewThunk(formData))
+    await dispatch(addReviewThunk(formData)).then(closeModal())
 
   }
   return (

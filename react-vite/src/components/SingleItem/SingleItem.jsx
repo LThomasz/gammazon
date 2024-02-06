@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
 import { loadOneItemThunk } from "../../redux/item"
@@ -7,6 +7,7 @@ import Reviews from "../Reviews/Reviews";
 import './SingleItem.css'
 
 function SingleItem() {
+  const [state, setState] = useState(false);
   const {productId} = useParams()
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -15,10 +16,15 @@ function SingleItem() {
   const user = useSelector((state) => state.session.user)
   const item = Object.values(itemsObj)[0]
   const reviews = Object.values(reviewsObj)
+
+  const changeState = () => {
+    setState(!state);
+  }
+
   useEffect(() => {
     dispatch(loadOneItemThunk(productId))
     dispatch(loadReviewsThunk(productId))
-  }, [dispatch])
+  }, [dispatch, state])
 
   return (
     <>
@@ -36,7 +42,7 @@ function SingleItem() {
         </div>
       </div>
       <div>
-        <Reviews reviews={reviews}/>
+        <Reviews reviews={reviews} change={changeState}/>
       </div>
     </>
   )

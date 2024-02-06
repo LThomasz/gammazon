@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useNavigate } from "react-router-dom"
 import { loadUserItemsThunk } from "../../redux/item"
 import "./UserItems.css"
-import ItemTile from "../ItemTile/ItemTile";
+import UserItemTile from "../ItemTile/UserItemTile";
 
 function UserItems() {
   const navigate = useNavigate();
@@ -22,9 +22,9 @@ function UserItems() {
       <div className="">
         {items.map((item) => {
           return (
-            <NavLink to={`/products/${item.id}/edit`} state={{fromUI: {item}}}>
-              <ItemTile key={item.id} item={item}/>
-            </NavLink>
+            // <NavLink to={`/products/${item.id}/edit`} state={{fromUI: {item}}}>
+              <UserItemTile key={item.id} item={item}/>
+            // </NavLink>
           )
         })}
       </div>

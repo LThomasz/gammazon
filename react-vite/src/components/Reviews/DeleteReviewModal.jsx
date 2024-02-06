@@ -1,16 +1,23 @@
 import { useModal } from "../../context/Modal";
-import { deleteReviewThunk } from "../../redux/review";
+import { deleteReviewThunk, loadReviewsThunk } from "../../redux/review";
 import { useDispatch } from "react-redux";
 import './DeleteReviewModal.css'
+import { useEffect } from "react";
 
-export default function DeleteReviewModal({reviewId, itemId}) {
+export default function DeleteReviewModal({reviewId, itemId, change}) {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
   const deleteReview = async (e) => {
     e.stopPropagation()
     await dispatch(deleteReviewThunk(reviewId))
+    await dispatch(loadReviewsThunk(itemId)).then(closeModal())
+    change()
   }
+
+  useEffect(() => {
+
+  }, [dispatch])
 
   return  (
     <div className="delete-review-container">
