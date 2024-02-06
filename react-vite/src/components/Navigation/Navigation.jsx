@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import { useModal } from "../../context/Modal";
 import { useSelector } from "react-redux";
+import logo from "../../../images/Gamma (1).png"
 import "./Navigation.css";
 
 function Navigation() {
@@ -33,6 +34,9 @@ function Navigation() {
     <>
       <div className="top-bar">
         <div className="nav-bar">
+          <span>
+            <img src={logo} alt="" className="page-logo" onClick={() => navigate('/')}/>
+          </span>
           <span>
             <ProfileButton />
           </span>

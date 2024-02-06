@@ -1,0 +1,13 @@
+.item-tile-container {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.item-tile-container:hover {
+  cursor: pointer;
+}
+
+.item-image {
+  width: 100%;
+}

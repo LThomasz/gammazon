@@ -16,16 +16,18 @@ function AllItems() {
   }, [dispatch])
 
   return (
-    <div className="all-items-container">
-      <h1>Gammazon All Products</h1>
-      <div className="">
-        {items.map((item) => {
-          return (
-            <NavLink to={`/products/${item.id}`} >
-              <ItemTile key={item.id} item={item}/>
-            </NavLink>
-          )
-        })}
+    <div className="all-items-main-container">
+      <div className="all-items-container">
+        <h1>Gammazon All Products</h1>
+        <div className="all-items-list">
+          {items.map((item) => {
+            return (
+              // <NavLink to={`/products/${item.id}`} >
+                <ItemTile key={item.id} item={item}/>
+              // </NavLink>
+            )
+          })}
+        </div>
       </div>
     </div>
   )
