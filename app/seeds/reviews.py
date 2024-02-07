@@ -52,6 +52,14 @@ def seed_reviews():
     created_at = datetime.now(),
     updated_at = datetime.now()
   )
+  review7 = Review (
+    user_id = 3,
+    item_id = 7,
+    rating = 3,
+    review = 'It came cracked listen to other reviews.',
+    created_at = datetime.now(),
+    updated_at = datetime.now()
+  )
 
   db.session.add(review1)
   db.session.add(review2)
@@ -59,6 +67,7 @@ def seed_reviews():
   db.session.add(review4)
   db.session.add(review5)
   db.session.add(review6)
+  db.session.add(review7)
   db.session.commit()
 
 def undo_reviews():

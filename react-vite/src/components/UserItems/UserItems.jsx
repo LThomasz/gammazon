@@ -20,16 +20,18 @@ function UserItems() {
   }, [dispatch, state])
 
   return (
-    <div className="all-items-container">
-      <h1>My Product listings</h1>
-      <div className="">
-        {items.map((item) => {
-          return (
-            // <NavLink to={`/products/${item.id}/edit`} state={{fromUI: {item}}}>
-              <UserItemTile key={item.id} item={item} change={changeState}/>
-            // </NavLink>
-          )
-        })}
+    <div className="all-items-main-container">
+      <div className="all-items-container">
+        <h1>My Product listings</h1>
+        <div className="all-useritems-list">
+          {items.map((item) => {
+            return (
+              // <NavLink to={`/products/${item.id}/edit`} state={{fromUI: {item}}}>
+                <UserItemTile key={item.id} item={item} change={changeState}/>
+              // </NavLink>
+            )
+          })}
+        </div>
       </div>
     </div>
   )

@@ -1,0 +1,15 @@
+.all-useritems-main-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 83px;
+}
+
+.all-useritems-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.all-useritems-list {
+  display: flex;
+  flex-wrap: wrap;
+}
