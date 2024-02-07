@@ -65,9 +65,9 @@ def deleteItem(itemId):
   remove_img_from_s3(item.to_dict()['image'])
   db.session.delete(item)
   db.session.commit()
-  return 'Success!'
+  return item.to_dict()
 
 @item_routes.route('/current/<int:id>')
 def userItems(id):
   userItems = Item.query.filter(Item.user_id == id).all()
-  return { 'items': [item.to_dict() for item in userItems]}
+  return { 'item': [item.to_dict() for item in userItems]}

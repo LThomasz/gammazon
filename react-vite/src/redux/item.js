@@ -137,7 +137,7 @@ const itemReducer = (state = initialState, action) => {
       }
       case LOAD_USER_ITEMS: {
         const newState = { }
-        action.items.items.forEach(el => {
+        action.items.item.forEach(el => {
           newState[el.id] = el
         });
         return newState

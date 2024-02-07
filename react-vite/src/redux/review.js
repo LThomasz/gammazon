@@ -79,8 +79,6 @@ export const deleteReviewThunk = (reviewId) => async (dispatch) => {
     dispatch(deleteReview(data))
     return data
   }
-  const data = await res.json()
-  console.log(data)
 }
 
 const initialState = {}

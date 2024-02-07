@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "./UserItemTile.css"
-
+import DeleteUserItem from "../UserItems/DeleteUserItem";
 function UserItemTile({item}) {
   const navigate = useNavigate();
   return (
@@ -14,7 +14,7 @@ function UserItemTile({item}) {
         <NavLink to={`/products/${item.id}/edit`} state={{fromUI: {item}}}>
           <button>Edit</button>
         </NavLink>
-        <button>Delete</button>
+        <DeleteUserItem itemId={item.id}/>
       </div>
     </div>
   )

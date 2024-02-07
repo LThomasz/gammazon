@@ -53,6 +53,7 @@ function ProfileButton() {
               <span className="profile-user-info">{user.email}</span>
               <span><hr /></span>
               <span className="profile-user-info" onClick={() => navigate(`/my-products`)}>Manage Products</span>
+              <span className="profile-user-info" onClick={() => navigate(`/new-product`)}>Create Product Listing</span>
               <span><hr /></span>
               <span className="button-divider">
                 <button onClick={logout} className="logout-button">Log Out</button>
