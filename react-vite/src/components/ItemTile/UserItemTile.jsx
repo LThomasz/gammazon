@@ -1,8 +1,7 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./UserItemTile.css"
 import DeleteUserItem from "../UserItems/DeleteUserItem";
 function UserItemTile({item, change}) {
-  const navigate = useNavigate();
 
   return (
     <div className="useritem-tile-container">
