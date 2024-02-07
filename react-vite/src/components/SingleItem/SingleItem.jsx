@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { loadOneItemThunk } from "../../redux/item"
 import { loadReviewsThunk } from "../../redux/review";
 import Reviews from "../Reviews/Reviews";
@@ -9,13 +9,23 @@ import './SingleItem.css'
 function SingleItem() {
   const [state, setState] = useState(false);
   const {productId} = useParams()
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const itemsObj = useSelector((state) => state.items)
   const reviewsObj = useSelector((state) => state.reviews)
-  const user = useSelector((state) => state.session.user)
   const item = Object.values(itemsObj)[0]
   const reviews = Object.values(reviewsObj)
+  const numReviews = reviews.length
+
+  const avgRating = () => {
+    if (reviews.length) {
+      let ratings = 0;
+      reviews.forEach((el) => ratings += el.rating)
+      return (ratings /= reviews.length)
+    } else {
+      return 'No Reviews'
+    }
+  }
+
 
   const changeState = () => {
     setState(!state);
@@ -24,7 +34,7 @@ function SingleItem() {
   useEffect(() => {
     dispatch(loadOneItemThunk(productId))
     dispatch(loadReviewsThunk(productId))
-  }, [dispatch, state])
+  }, [dispatch, state, productId])
 
   return (
     <>
@@ -36,7 +46,10 @@ function SingleItem() {
           <div className="single-info-container">
             <h2>{`${item?.name}`}</h2>
             <h3>{`${item?.created_at}`}</h3>
-            {/* ratings should go here */}
+            <h4>
+              <i className="fa-solid fa-star"></i>
+              {typeof avgRating() === 'string' ? 'New' : avgRating().toFixed(1)} {typeof numReviews === 'string' ? null : numReviews == 1 ? `· ${numReviews} review` : `· ${numReviews} reviews`}
+            </h4>
             <p>{`${item?.description}`}</p>
           </div>
         </div>

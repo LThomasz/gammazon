@@ -1,12 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { useNavigate, NavLink } from "react-router-dom"
 import { loadItemsThunk } from "../../redux/item"
 import "./AllItems.css"
 import ItemTile from "../ItemTile/ItemTile";
 
 function AllItems() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const itemsObj = useSelector((state) => state.items)
   const items = Object.values(itemsObj)
@@ -22,9 +20,7 @@ function AllItems() {
         <div className="all-items-list">
           {items.map((item) => {
             return (
-              // <NavLink to={`/products/${item.id}`} >
-                <ItemTile key={item.id} item={item}/>
-              // </NavLink>
+              <ItemTile key={item.id} item={item}/>
             )
           })}
         </div>

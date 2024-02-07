@@ -25,7 +25,7 @@
   font-size: 40px;
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   width: 330px;
 }
 
@@ -46,4 +46,17 @@
   border: none;
   cursor: pointer;
   width: 330px;
+}
+
+.log-in-form > label {
+  display: flex;
+  align-items: center;
+
+}
+
+.log-in-form > label > p {
+  color: red;
+  padding-left: 7px;
+  margin: 0px;
+
 }

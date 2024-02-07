@@ -66,7 +66,7 @@ def seed_items():
     price = 26.49,
     created_at = datetime.now()
   )
-  item7 = Item(
+  item8 = Item(
     user_id = 2,
     category_id = 6,
     name = 'Self Cleaning Slicker Brush for Cats & Dogs',
@@ -75,7 +75,7 @@ def seed_items():
     price = 8.99,
     created_at = datetime.now()
   )
-  item8 = Item(
+  item9 = Item(
     user_id = 3,
     category_id = 2,
     name = 'The Willows',
@@ -95,6 +95,7 @@ def seed_items():
   db.session.add(item6)
   db.session.add(item7)
   db.session.add(item8)
+  db.session.add(item9)
 
   db.session.commit()
 

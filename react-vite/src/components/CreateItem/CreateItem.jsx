@@ -18,60 +18,65 @@ export default function CreateItem() {
   const [submitted, setSubmitted] = useState(false)
   const user = useSelector(state => state.session.user)
   useEffect(() => {
-    const errors = {};
+    const newErrors = {};
 
     if (!name.length) {
-      errors.name = "Name is required"
+      newErrors.name = "Name is required"
     }
     if (name.length < 4 ) {
-      errors.name = "Name must be at least 4 characters"
+      newErrors.name = "Name must be at least 4 characters"
     }
     if (name.length > 255) {
-      errors.name = "Name is too long"
+      newErrors.name = "Name is too long"
     }
 
     if (image === null) {
-      errors.image = "Image is required"
+      newErrors.image = "Image is required"
     }
 
     if (!description.length) {
-      errors.description = "Description is required"
+      newErrors.description = "Description is required"
     }
     if (description.length > 255) {
-      errors.description = "Description is too long"
+      newErrors.description = "Description is too long"
     }
 
     if (!price) {
-      errors.price = "Price is required"
+      newErrors.price = "Price is required"
     }
     if (price < 0) {
-      errors.price = "Price cannot be negative"
+      newErrors.price = "Price cannot be negative"
     }
 
-  })
+    if (!category) {
+      newErrors.category = "Category is required"
+    }
+    setErrors(newErrors)
+  }, [name, image, description, price])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setSubmitted(true)
 
-    const formData = new FormData();
-    formData.append("user_id", user.id);
-    formData.append("category_id", parseInt(category));
-    formData.append("name", name);
-    formData.append("image", image);
-    formData.append("description", description);
-    formData.append("price", price);
+    if (!Object.values(errors).length) {
+      const formData = new FormData();
+      formData.append("user_id", user.id);
+      formData.append("category_id", parseInt(category));
+      formData.append("name", name);
+      formData.append("image", image);
+      formData.append("description", description);
+      formData.append("price", price);
 
-    setImageLoading(true);
+      setImageLoading(true);
 
-    // for (let i of formData.entries()) {
-    //   console.log(i[0]+ ', ' + i[1])
-    // }
+      // for (let i of formData.entries()) {
+      //   console.log(i[0]+ ', ' + i[1])
+      // }
 
-    const item = await dispatch(addItemThunk(formData))
-    console.log(item)
-    navigate(`/products/${item.id}`)
+      const item = await dispatch(addItemThunk(formData))
+      navigate(`/products/${item.id}`)
+    }
   }
 
   return (

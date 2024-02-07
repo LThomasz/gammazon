@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
 import { loadUserItemsThunk } from "../../redux/item"
 import "./UserItems.css"
 import UserItemTile from "../ItemTile/UserItemTile";
 
 function UserItems() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [state, setState] = useState(false);
   const itemsObj = useSelector((state) => state.items)

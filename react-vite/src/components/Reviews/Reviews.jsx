@@ -1,12 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
-import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+import { useSelector } from "react-redux";
 import "./Reviews.css"
-import { useNavigate } from "react-router-dom";
 import AddReview from "./AddReview";
 import DeleteReview from "./DeleteReview"
 function Reviews({reviews, change}) {
-  const dispatch = useDispatch();
-  const navigate = useNavigate()
   const user = useSelector((state) => state.session.user)
   const itemsObj = useSelector((state) => state.items)
   const item = Object.values(itemsObj)[0]
