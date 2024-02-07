@@ -8,13 +8,14 @@ import CreateItem from '../components/CreateItem/CreateItem';
 import Reviews from '../components/Reviews/Reviews'
 import EditItem from '../components/EditItem/EditItem';
 import UserItems from '../components/UserItems/UserItems';
+import HomePage from '../components/HomePage/HomePage';
 export const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
       {
         path: "/",
-        element: <h1>Welcome!</h1>,
+        element: <HomePage />,
       },
       {
         path: "login",

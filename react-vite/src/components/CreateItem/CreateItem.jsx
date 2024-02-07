@@ -7,7 +7,7 @@ import "./CreateItem.css"
 export default function CreateItem() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const categories = ['Electronics', 'Books', 'Musical Instruments']
+  const categories = ['Electronics', 'Books', 'Musical Instruments', 'Automotive', 'Jewelry & Watches', 'Pet Supplies']
   const [category, setCategory] = useState(0)
   const [name, setName] = useState("")
   const [image, setImage] = useState(null)
