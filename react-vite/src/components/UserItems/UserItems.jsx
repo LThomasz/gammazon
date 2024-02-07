@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { NavLink, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { loadUserItemsThunk } from "../../redux/item"
 import "./UserItems.css"
 import UserItemTile from "../ItemTile/UserItemTile";
@@ -8,13 +8,18 @@ import UserItemTile from "../ItemTile/UserItemTile";
 function UserItems() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [state, setState] = useState(false);
   const itemsObj = useSelector((state) => state.items)
   const user = useSelector((state) => state.session.user)
   const items = Object.values(itemsObj)
 
+  const changeState = () => {
+    setState(!state);
+  }
+
   useEffect(() => {
     dispatch(loadUserItemsThunk(user.id));
-  }, [dispatch])
+  }, [dispatch, state])
 
   return (
     <div className="all-items-container">
@@ -23,7 +28,7 @@ function UserItems() {
         {items.map((item) => {
           return (
             // <NavLink to={`/products/${item.id}/edit`} state={{fromUI: {item}}}>
-              <UserItemTile key={item.id} item={item}/>
+              <UserItemTile key={item.id} item={item} change={changeState}/>
             // </NavLink>
           )
         })}

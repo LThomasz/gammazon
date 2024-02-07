@@ -10,7 +10,7 @@ export default function EditItem() {
   const categories = ['Electronics', 'Books', 'Musical Instruments']
   const {productId} = useParams();
   const user = useSelector(state => state.session.user)
-  const [category, setCategory] = useState(0)
+  const [category, setCategory] = useState(`${state.fromUI.item.category}`)
   const [name, setName] = useState(`${state.fromUI.item.name}`)
   const [image, setImage] = useState(`${state.fromUI.item.image}`)
   const [description, setDescription] = useState(`${state.fromUI.item.description}`)
@@ -63,7 +63,7 @@ export default function EditItem() {
 
     const formData = new FormData();
     formData.append("user_id", user.id);
-    formData.append("category_id", 1);
+    formData.append("category_id", parseInt(category));
     formData.append("name", name);
     formData.append("image", image);
     formData.append("description", description);
@@ -91,10 +91,14 @@ export default function EditItem() {
           <div className="edit-form-el">
             <p>Product Category</p>
             {submitted && errors.category && <p style={{color: 'red'}}>{errors.category}</p>}
-            <select onChange={(e) => setCategory(e.target.value)}>
+            <select value={category} onChange={(e) => setCategory(e.target.value)}>
+              <option value="" disabled >Choose here</option>
               <option value='1'>Electronics</option>
               <option value='2'>Books</option>
               <option value='3'>Musical Instruments</option>
+              <option value='4'>Automotive</option>
+              <option value='5'>Jewelry & Watches</option>
+              <option value='6'>Pet Supplies</option>
             </select>
           </div>
           <div className="edit-form-el">

@@ -1,20 +1,22 @@
 import { useModal } from "../../context/Modal";
-import { deleteItemThunk, loadItemsThunk } from "../../redux/item";
-import { useDispatch } from "react-redux";
+import { deleteItemThunk, loadUserItemsThunk } from "../../redux/item";
+import { useDispatch, useSelector } from "react-redux";
 import './DeleteUserItemModal.css'
 import { useEffect } from "react";
 
-export default function DeleteUserItemModal({itemId}) {
+export default function DeleteUserItemModal({itemId, change}) {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
+  const user = useSelector((state) => state.session.user)
 
   const deleteItem = async (e) => {
     e.stopPropagation()
     await dispatch(deleteItemThunk(itemId)).then(closeModal())
+    change()
   }
 
   useEffect(() => {
-    dispatch(loadItemsThunk())
+    dispatch(loadUserItemsThunk(user.id))
   }, [dispatch])
 
   return  (

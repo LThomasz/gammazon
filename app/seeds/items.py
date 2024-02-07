@@ -39,11 +39,63 @@ def seed_items():
     price = 10.52,
     created_at = datetime.now()
   )
+  item5 = Item(
+    user_id = 3,
+    category_id = 4,
+    name = 'Car Jump Starter with Air Compressor',
+    image = 'https://gammazon-767398031119.s3.us-west-1.amazonaws.com/jumpstarter.jpg',
+    description = '3000A current jump starter battery which also has an air compressor.',
+    price = 78.99,
+    created_at = datetime.now()
+  )
+  item6 = Item(
+    user_id = 3,
+    category_id = 5,
+    name = 'SWAROVSKI Women\'s Cosmopolitan Crystal Watch',
+    image = 'https://gammazon-767398031119.s3.us-west-1.amazonaws.com/watch.jpg',
+    description = 'An elegant crystalline watch from the crystal watch collection',
+    price = 192.23,
+    created_at = datetime.now()
+  )
+  item7 = Item(
+    user_id = 1,
+    category_id = 5,
+    name = 'Phoenix Necklace made with Austrian Crystals',
+    image = 'https://gammazon-767398031119.s3.us-west-1.amazonaws.com/necklace.jpg',
+    description = 'A crystal necklace symbolizing rebirth and eternity',
+    price = 26.49,
+    created_at = datetime.now()
+  )
+  item7 = Item(
+    user_id = 2,
+    category_id = 6,
+    name = 'Self Cleaning Slicker Brush for Cats & Dogs',
+    image = 'https://gammazon-767398031119.s3.us-west-1.amazonaws.com/petbrush.jpg',
+    description = 'Made for easy cleaning at the press of a button',
+    price = 8.99,
+    created_at = datetime.now()
+  )
+  item8 = Item(
+    user_id = 3,
+    category_id = 2,
+    name = 'The Willows',
+    image = 'https://gammazon-767398031119.s3.us-west-1.amazonaws.com/willows.jpg',
+    description = 'The Willows by Algernon Blackwood is praised as one of the greatest horror stories ever written.',
+    price = 26.95,
+    created_at = datetime.now()
+  )
+
+
 
   db.session.add(item1)
   db.session.add(item2)
   db.session.add(item3)
   db.session.add(item4)
+  db.session.add(item5)
+  db.session.add(item6)
+  db.session.add(item7)
+  db.session.add(item8)
+
   db.session.commit()
 
 def undo_items():

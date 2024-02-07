@@ -33,7 +33,7 @@ def newItemSub():
     db.session.add(newItem)
     db.session.commit()
     return newItem.to_dict()
-  return 'Bad Data'
+  return form.errors
 
 @item_routes.route('/<int:itemId>')
 def singleItem(itemId):

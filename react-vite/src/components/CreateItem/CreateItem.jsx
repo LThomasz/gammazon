@@ -7,8 +7,8 @@ import "./CreateItem.css"
 export default function CreateItem() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const categories = ['Electronics', 'Books', 'Musical Instruments', 'Automotive', 'Jewelry & Watches', 'Pet Supplies']
-  const [category, setCategory] = useState(0)
+  // const categories = ['Electronics', 'Books', 'Musical Instruments', 'Automotive', 'Jewelry & Watches', 'Pet Supplies']
+  const [category, setCategory] = useState("")
   const [name, setName] = useState("")
   const [image, setImage] = useState(null)
   const [description, setDescription] = useState("")
@@ -57,7 +57,7 @@ export default function CreateItem() {
 
     const formData = new FormData();
     formData.append("user_id", user.id);
-    formData.append("category_id", 1);
+    formData.append("category_id", parseInt(category));
     formData.append("name", name);
     formData.append("image", image);
     formData.append("description", description);
@@ -69,7 +69,9 @@ export default function CreateItem() {
     //   console.log(i[0]+ ', ' + i[1])
     // }
 
-    await dispatch(addItemThunk(formData))
+    const item = await dispatch(addItemThunk(formData))
+    console.log(item)
+    navigate(`/products/${item.id}`)
   }
 
   return (
@@ -85,10 +87,14 @@ export default function CreateItem() {
           <div className="form-el">
             <p>Product Category</p>
             {submitted && errors.category && <p style={{color: 'red'}}>{errors.category}</p>}
-            <select onChange={(e) => setCategory(e.target.value)}>
+            <select value={category} onChange={(e) => setCategory(e.target.value)}>
+              <option value="" disabled >Choose here</option>
               <option value='1'>Electronics</option>
               <option value='2'>Books</option>
               <option value='3'>Musical Instruments</option>
+              <option value='4'>Automotive</option>
+              <option value='5'>Jewelry & Watches</option>
+              <option value='6'>Pet Supplies</option>
             </select>
           </div>
           <div className="form-el">
