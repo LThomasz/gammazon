@@ -19,7 +19,7 @@ function SignupFormModal() {
     if (password !== confirmPassword) {
       return setErrors({
         confirmPassword:
-          "Confirm Password field must be the same as the Password field",
+          "Confirm Password field and Password field must match",
       });
     }
 
@@ -33,6 +33,7 @@ function SignupFormModal() {
 
     if (serverResponse) {
       setErrors(serverResponse);
+      console.log(errors)
     } else {
       closeModal();
     }
@@ -55,6 +56,7 @@ function SignupFormModal() {
         />
         <label>
           Username
+          {errors.username && <p>{errors.username}</p>}
         </label>
         <input
           type="text"
@@ -62,7 +64,6 @@ function SignupFormModal() {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-        {errors.username && <p>{errors.username}</p>}
         <label>
           Password
           {errors.password && <p>{errors.password}</p>}

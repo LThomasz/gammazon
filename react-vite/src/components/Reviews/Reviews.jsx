@@ -35,9 +35,16 @@ function Reviews({reviews, change}) {
           <p>{`${rev?.rating}`} <i className="fa-solid fa-star"></i></p>
           <p>{`${rev?.created_at}`}</p>
           <p>{`${rev?.review}`}</p>
-          { user && user.id == rev.user_id && <div className="delete-button">
+          { user && user.id == rev.user_id &&
+          <>
+          <div className="edit-button">
             <DeleteReview reviewId={rev.id} itemId={item?.id} change={change}/>
-          </div>}
+          </div>
+          <div className="delete-button">
+            <DeleteReview reviewId={rev.id} itemId={item?.id} change={change}/>
+          </div>
+          </>}
+
         </div>
         )
       })}

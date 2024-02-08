@@ -9,7 +9,7 @@ export default function EditItem() {
   const {state} = useLocation()
   const {productId} = useParams();
   const user = useSelector(state => state.session.user)
-  const [category, setCategory] = useState(`${state.fromUI.item.category}`)
+  const [category, setCategory] = useState(`${state.fromUI.item.category_id}`)
   const [name, setName] = useState(`${state.fromUI.item.name}`)
   const [image, setImage] = useState(`${state.fromUI.item.image}`)
   const [description, setDescription] = useState(`${state.fromUI.item.description}`)
@@ -17,6 +17,7 @@ export default function EditItem() {
   const [imageLoading, setImageLoading] = useState(false);
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
+  console.log(state)
 
   useEffect(() => {
     const newErrors = {};

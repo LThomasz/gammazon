@@ -57,7 +57,7 @@ def editItem(itemId):
     oldItem.price = data['price']
     db.session.commit()
     return oldItem.to_dict()
-  return form.errors
+  return form.errors, 400
 
 @item_routes.route('/<int:itemId>', methods=['DELETE'])
 def deleteItem(itemId):
