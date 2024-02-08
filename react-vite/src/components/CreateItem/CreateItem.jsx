@@ -44,7 +44,7 @@ export default function CreateItem() {
     if (!price) {
       newErrors.price = "Price is required"
     }
-    if (price < 0) {
+    if (Number(price) < 0) {
       newErrors.price = "Price cannot be negative"
     }
 
@@ -134,7 +134,8 @@ export default function CreateItem() {
             <p>Product Price</p>
             {submitted && errors.price && <p style={{color: 'red'}}>{errors.price}</p>}
             <input
-              type="number"
+              type="string"
+              pattern="^[0-9]\d{0,9}(\.\d{1,3})?%?$"
               className="product-price product-input"
               onChange={(e) => setPrice(e.target.value)}
             />

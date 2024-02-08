@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import "./Reviews.css"
 import AddReview from "./AddReview";
 import DeleteReview from "./DeleteReview"
+import "./Reviews.css"
 function Reviews({reviews, change}) {
   const user = useSelector((state) => state.session.user)
   const itemsObj = useSelector((state) => state.items)
@@ -24,7 +24,6 @@ function Reviews({reviews, change}) {
       return true
     }
   }
-
   return (
     <div>
       {check() && <div>
@@ -32,8 +31,8 @@ function Reviews({reviews, change}) {
       </div>}
       {reviews?.map((rev) => {
         return (
-        <div key={rev.id}>
-          <p>{`${rev?.rating}`}</p>
+        <div key={rev.id} className="review">
+          <p>{`${rev?.rating}`} <i className="fa-solid fa-star"></i></p>
           <p>{`${rev?.created_at}`}</p>
           <p>{`${rev?.review}`}</p>
           { user && user.id == rev.user_id && <div className="delete-button">

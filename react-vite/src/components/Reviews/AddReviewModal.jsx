@@ -42,7 +42,7 @@ export default function AddReviewModal({itemId}) {
         <div className="add-review-header">
           <h1>Add a written review</h1>
         </div>
-        <div>
+        <div className="add-review-review">
           <label>
             Review
           </label>

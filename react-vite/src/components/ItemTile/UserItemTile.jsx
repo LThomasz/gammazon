@@ -8,7 +8,7 @@ function UserItemTile({item, change}) {
       <img src={`${item.image}`} className="useritem-image"/>
       <div className="useritem-info">
         <p>{item.name}</p>
-        <p>$ {item.price}</p>
+        <p>$ {Number(item?.price).toFixed(2)}</p>
       </div>
       <div>
         <NavLink to={`/products/${item.id}/edit`} state={{fromUI: {item}}}>

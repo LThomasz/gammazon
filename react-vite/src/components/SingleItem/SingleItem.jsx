@@ -47,6 +47,7 @@ function SingleItem() {
             <h2>{`${item?.name}`}</h2>
             <h3>{`${item?.created_at}`}</h3>
             <h4>
+              {`$ ${Number(item?.price).toFixed(2)} `}
               <i className="fa-solid fa-star"></i>
               {typeof avgRating() === 'string' ? 'New' : avgRating().toFixed(1)} {typeof numReviews === 'string' ? null : numReviews == 1 ? `· ${numReviews} review` : `· ${numReviews} reviews`}
             </h4>

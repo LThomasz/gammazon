@@ -8,7 +8,7 @@ function ItemTile({item}) {
       <img src={`${item.image}`} className="item-image"/>
       <div className="item-info">
         <p>{item.name}</p>
-        <p>$ {item.price}</p>
+        <p>$ {Number(item?.price).toFixed(2)}</p>
       </div>
     </div>
   )
