@@ -1,0 +1,19 @@
+.useritem-tile-container {
+  display: flex;
+  flex-direction: column;
+  width: 23%;
+  margin: 5px;
+  box-sizing: border-box;
+  flex-grow: 1;
+	flex-shrink: 0;
+	flex-basis: calc(25% - 10px);
+  max-width: 23%;
+  max-height: 500px;
+}
+
+.useritem-image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+
+}

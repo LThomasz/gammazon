@@ -1,0 +1,15 @@
+.all-items-main-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 83px;
+}
+
+.all-items-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.all-items-list {
+  display: flex;
+  flex-wrap: wrap;
+}

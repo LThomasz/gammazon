@@ -45,6 +45,7 @@ function SignupFormModal() {
       <form onSubmit={handleSubmit} className="sign-up-form">
         <label>
           Email
+          {errors.email && <p>{errors.email}</p>}
         </label>
         <input
           type="text"
@@ -52,7 +53,6 @@ function SignupFormModal() {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        {errors.email && <p>{errors.email}</p>}
         <label>
           Username
         </label>
@@ -65,6 +65,7 @@ function SignupFormModal() {
         {errors.username && <p>{errors.username}</p>}
         <label>
           Password
+          {errors.password && <p>{errors.password}</p>}
         </label>
         <input
           type="password"
@@ -72,9 +73,9 @@ function SignupFormModal() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        {errors.password && <p>{errors.password}</p>}
         <label>
           Confirm Password
+          {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
         </label>
         <input
           type="password"
@@ -82,7 +83,6 @@ function SignupFormModal() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-        {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
         <div className="sign-up-button-div">
           <button type="submit" className="sign-up-button">Sign Up</button>
         </div>

@@ -2,14 +2,20 @@ import { createBrowserRouter } from 'react-router-dom';
 import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
-
+import AllItems from '../components/AllItems/AllItems';
+import SingleItem from '../components/SingleItem/SingleItem'
+import CreateItem from '../components/CreateItem/CreateItem';
+import Reviews from '../components/Reviews/Reviews'
+import EditItem from '../components/EditItem/EditItem';
+import UserItems from '../components/UserItems/UserItems';
+import HomePage from '../components/HomePage/HomePage';
 export const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
       {
         path: "/",
-        element: <h1>Welcome!</h1>,
+        element: <HomePage />,
       },
       {
         path: "login",
@@ -21,27 +27,27 @@ export const router = createBrowserRouter([
       },
       {
         path: "new-product",
-        element: <h1>Placeholder for create product page</h1>
+        element: <CreateItem />
       },
       {
         path: "products",
-        element: <h1>Placeholder for all products page</h1>
+        element: <AllItems />
       },
       {
         path: "products/:productId",
-        element: <h1>Placeholder for single product page</h1>
+        element: <SingleItem />
       },
       {
         path: "products/:productId/edit",
-        element: <h1>Placeholder for product edit page</h1>
-      },
-      {
-        path: "new-product",
-        element: <h1>Placeholder for create product page</h1>
+        element: <EditItem />
       },
       {
         path: "my-products",
-        element: <h1>Placeholder for user products page</h1>
+        element: <UserItems />
+      },
+      {
+        path: "test",
+        element: <Reviews />
       }
     ],
   },

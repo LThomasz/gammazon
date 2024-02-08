@@ -1,0 +1,6 @@
+.home-page-container {
+  display: flex;
+  margin-top: 85px;
+  flex-direction: column;
+  align-items: center;
+}

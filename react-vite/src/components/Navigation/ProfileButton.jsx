@@ -4,12 +4,14 @@ import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
-
+import "./Navigation.css"
+import { useNavigate } from "react-router-dom";
 function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((store) => store.session.user);
   const ulRef = useRef();
+  const navigate = useNavigate();
 
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
@@ -36,22 +38,27 @@ function ProfileButton() {
     e.preventDefault();
     dispatch(thunkLogout());
     closeMenu();
+    navigate('/')
   };
 
   return (
     <>
-      <button onClick={toggleMenu}>
+      <button onClick={toggleMenu} className="profile-button">
         <i className="fas fa-user-circle" />
       </button>
       {showMenu && (
         <ul className={"profile-dropdown"} ref={ulRef}>
           {user ? (
             <>
-              <li>{user.username}</li>
-              <li>{user.email}</li>
-              <li>
-                <button onClick={logout}>Log Out</button>
-              </li>
+              <span className="profile-user-info">{user.username}</span>
+              <span className="profile-user-info">{user.email}</span>
+              <span><hr /></span>
+              <span className="profile-user-info list-item" onClick={() => navigate(`/my-products`)}>Manage Products</span>
+              <span className="profile-user-info list-item" onClick={() => navigate(`/new-product`)}>Create Product Listing</span>
+              <span><hr /></span>
+              <span className="button-divider">
+                <button onClick={logout} className="logout-button">Log Out</button>
+              </span>
             </>
           ) : (
             <>

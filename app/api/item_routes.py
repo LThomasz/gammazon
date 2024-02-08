@@ -19,9 +19,10 @@ def newItem():
 def newItemSub():
   form = ItemForm()
   form['csrf_token'].data = request.cookies['csrf_token']
+  print(form.data)
   if form.validate_on_submit():
     data = form.data
-    form.image.filename = get_unique_filename_img(form.image.data.filename)
+    form.image.data.filename = get_unique_filename_img(form.image.data.filename)
     newItem = Item(user_id=data['user_id'],
                    category_id=data['category_id'],
                    name=data['name'],
@@ -31,8 +32,8 @@ def newItemSub():
                    created_at=data['created_at'])
     db.session.add(newItem)
     db.session.commit()
-    return redirect('/api/items')
-  return 'Bad Data'
+    return newItem.to_dict()
+  return form.errors
 
 @item_routes.route('/<int:itemId>')
 def singleItem(itemId):
@@ -43,10 +44,11 @@ def singleItem(itemId):
 def editItem(itemId):
   form = ItemForm()
   form['csrf_token'].data = request.cookies['csrf_token']
+  print(form.data)
   if form.validate_on_submit():
     oldItem = Item.query.get(itemId)
     data = form.data
-    form.image.filename.data.filename = get_unique_filename_img(form.image.data.filename)
+    form.image.data.filename = get_unique_filename_img(form.image.data.filename)
     oldItem.user_id = data['user_id']
     oldItem.category_id = data['category_id']
     oldItem.name = data['name']
@@ -54,8 +56,8 @@ def editItem(itemId):
     oldItem.description = data['description']
     oldItem.price = data['price']
     db.session.commit()
-    return redirect('/api/items')
-  return 'Bad Data'
+    return oldItem.to_dict()
+  return form.errors
 
 @item_routes.route('/<int:itemId>', methods=['DELETE'])
 def deleteItem(itemId):
@@ -63,9 +65,9 @@ def deleteItem(itemId):
   remove_img_from_s3(item.to_dict()['image'])
   db.session.delete(item)
   db.session.commit()
-  return 'Success!'
+  return item.to_dict()
 
 @item_routes.route('/current/<int:id>')
 def userItems(id):
   userItems = Item.query.filter(Item.user_id == id).all()
-  return { 'items': [item.to_dict() for item in userItems]}
+  return { 'item': [item.to_dict() for item in userItems]}
