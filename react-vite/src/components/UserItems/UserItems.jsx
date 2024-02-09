@@ -20,8 +20,8 @@ function UserItems() {
   }, [dispatch, state])
 
   return (
-    <div className="all-items-main-container">
-      <div className="all-items-container">
+    <div className="all-useritems-main-container">
+      <div className="all-useritems-container">
         <h1>My Product listings</h1>
         <div className="all-useritems-list">
           {items.map((item) => {
