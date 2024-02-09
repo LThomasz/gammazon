@@ -8,12 +8,16 @@
 	flex-shrink: 0;
 	flex-basis: calc(25% - 10px);
   max-width: 23%;
-  max-height: 500px;
+}
+
+.useritem-tile-container:hover {
+  cursor: pointer;
 }
 
 .useritem-image {
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
-
+  height: 300px;
+  object-fit: contain;
 }

@@ -37,14 +37,14 @@ function Reviews({reviews, change}) {
           <p>{`${rev?.created_at}`}</p>
           <p>{`${rev?.review}`}</p>
           { user && user.id == rev.user_id &&
-          <>
-          <div className="edit-button">
-            <EditReview reviewId={rev.id} itemId={item?.id} change={change} review={rev}/>
-          </div>
-          <div className="delete-button">
-            <DeleteReview reviewId={rev.id} itemId={item?.id} change={change}/>
-          </div>
-          </>}
+          <div className="review-buttons">
+            <div className="edit-button">
+              <EditReview reviewId={rev.id} itemId={item?.id} change={change} review={rev}/>
+            </div>
+            <div className="delete-button">
+              <DeleteReview reviewId={rev.id} itemId={item?.id} change={change}/>
+            </div>
+          </div>}
 
         </div>
         )
