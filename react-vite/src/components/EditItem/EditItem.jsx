@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { editItemThunk, loadOneItemThunk } from "../../redux/item"
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import './EditItem.css'
 
 export default function EditItem() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {state} = useLocation()
   const {productId} = useParams();
   const user = useSelector(state => state.session.user)
   const [category, setCategory] = useState(`${state.fromUI.item.category_id}`)
   const [name, setName] = useState(`${state.fromUI.item.name}`)
-  const [image, setImage] = useState(`${state.fromUI.item.image}`)
+  const [image, setImage] = useState(null)
   const [description, setDescription] = useState(`${state.fromUI.item.description}`)
   const [price, setPrice] = useState(parseInt(`${state.fromUI.item.price}`))
+  const [clicked, setClicked] = useState(false);
   const [imageLoading, setImageLoading] = useState(false);
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
@@ -30,10 +32,6 @@ export default function EditItem() {
     }
     if (name.length > 255) {
       newErrors.name = "Name is too long"
-    }
-
-    if (image === null) {
-      newErrors.image = "Image is required"
     }
 
     if (!description.length) {
@@ -81,6 +79,7 @@ export default function EditItem() {
       // }
 
       await dispatch(editItemThunk(formData, productId))
+      navigate(`/products/${productId}`)
     }
   }
 
@@ -118,15 +117,31 @@ export default function EditItem() {
             />
           </div>
           <div className="edit-form-el">
-            <p>Product Image</p>
-            {submitted && errors.image && <p style={{color: 'red'}}>{errors.image}</p>}
-            <input
-              type="file"
+            {!clicked ? (
+              <div className="edit-form-image-container">
+                <p>Product Image</p>
+                <div className="edit-form-image-div">
+                  <p
+                    className="edit-form-x"
+                    onClick={() => setClicked(!clicked)}
+                  >&#10060;</p>
+                  <img src={`${state.fromUI.item.image}`} alt="" className="edit-form-image"/>
+                </div>
+              </div>
+            ) : (
+              <>
+              <p>Product Image</p>
+              {submitted && errors.image && <p style={{color: 'red'}}>{errors.image}</p>}
+              <input
+                type="file"
 
-              accept="image/*"
-              className="product-image product-input"
-              onChange={(e) => setImage(e.target.files[0])}
-            />
+                accept="image/*"
+                className="product-image product-input"
+                onChange={(e) => setImage(e.target.files[0])}
+              />
+              </>
+            )}
+
           </div>
           <div className="edit-form-el">
             <p>Product Description</p>
@@ -142,7 +157,8 @@ export default function EditItem() {
             <p>Product Price</p>
             {submitted && errors.price && <p style={{color: 'red'}}>{errors.price}</p>}
             <input
-              type="number"
+              type="string"
+              pattern="^[0-9]\d{0,9}(\.\d{1,3})?%?$"
               value={price}
               className="product-price product-input"
               onChange={(e) => setPrice(e.target.value)}

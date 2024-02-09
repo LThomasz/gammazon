@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addReviewThunk } from "../../redux/review";
 import { useModal } from "../../context/Modal";
@@ -9,6 +9,8 @@ export default function AddReviewModal({itemId}) {
   const [review, setReview] = useState('')
   const [activeRating, setActiveRating] = useState(0);
   const [rating, setRating] = useState(0);
+  const [errors, setErrors] = useState({});
+  const [submitted, setSubmitted] = useState("");
   const { closeModal } = useModal()
   const dispatch = useDispatch();
   const disabled = false;
@@ -19,19 +21,41 @@ export default function AddReviewModal({itemId}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("user_id", user.id);
-    formData.append("item_id", itemId);
-    formData.append("rating", rating);
-    formData.append("review", review);
+    setSubmitted(true)
 
-    // for (let i of formData.entries()) {
-    //   console.log(i[0]+ ', ' + i[1])
-    // }
+    if (!Object.values(errors).length){
+      const formData = new FormData();
+      formData.append("user_id", user.id);
+      formData.append("item_id", itemId);
+      formData.append("rating", rating);
+      formData.append("review", review);
 
-    await dispatch(addReviewThunk(formData)).then(closeModal())
+      // for (let i of formData.entries()) {
+      //   console.log(i[0]+ ', ' + i[1])
+      // }
+
+      await dispatch(addReviewThunk(formData)).then(closeModal())
+    }
 
   }
+
+  useEffect(() => {
+    const newErrors = {}
+
+    if (!review.length) {
+      newErrors.review = "Review is required"
+    }
+
+    if (review.length < 15 || review.length > 250) {
+      newErrors.review = "Review must be between 15 and 250 characters"
+    }
+
+    if (!rating) {
+      newErrors.rating = "Rating is required"
+    }
+
+    setErrors(newErrors)
+  }, [review, rating])
   return (
     <div className="add-review-container">
       <form onSubmit={handleSubmit}
@@ -45,6 +69,7 @@ export default function AddReviewModal({itemId}) {
         <div className="add-review-review">
           <label>
             Review
+            {submitted && errors.review && <p style={{color: 'red'}}>{errors.review}</p>}
           </label>
           <textarea
             value={review}
@@ -93,12 +118,15 @@ export default function AddReviewModal({itemId}) {
                 onMouseLeave={() => disabled || setActiveRating(rating)}
               ></i>
             </div>
-            <label htmlFor="rating-input">Stars</label>
+            <label htmlFor="rating-input">
+              Stars
+              {submitted && errors.rating && <p style={{color: 'red'}}>{errors.rating}</p>}
+            </label>
           </div>
         </div>
         <button
+          className="add-review-submit-butt"
           type="submit"
-          disabled={review.length < 10 || rating < 1}
         >Submit Your Review</button>
       </form>
     </div>

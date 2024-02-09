@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, redirect, request
 from app.models import Item, db
 from app.forms.item_form import ItemForm
+from app.forms.edit_item_form import EditItemForm
 from .aws_images import upload_img_to_s3, get_unique_filename_img, remove_img_from_s3
 
 item_routes = Blueprint('item', __name__)
@@ -42,17 +43,17 @@ def singleItem(itemId):
 
 @item_routes.route('/<int:itemId>/edit', methods=['PUT'])
 def editItem(itemId):
-  form = ItemForm()
+  form = EditItemForm()
   form['csrf_token'].data = request.cookies['csrf_token']
-  print(form.data)
   if form.validate_on_submit():
     oldItem = Item.query.get(itemId)
     data = form.data
-    form.image.data.filename = get_unique_filename_img(form.image.data.filename)
+    if data['image'] is not None:
+      form.image.data.filename = get_unique_filename_img(form.image.data.filename)
+      oldItem.image = upload_img_to_s3(form.image.data).get('url')
     oldItem.user_id = data['user_id']
     oldItem.category_id = data['category_id']
     oldItem.name = data['name']
-    oldItem.image = upload_img_to_s3(form.image.data).get('url')
     oldItem.description = data['description']
     oldItem.price = data['price']
     db.session.commit()
