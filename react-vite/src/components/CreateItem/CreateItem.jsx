@@ -82,7 +82,7 @@ export default function CreateItem() {
   return (
     <div className="create-product-container">
       <div className="product-form-container">
-        <h1>Create a product listing</h1>
+        <h1 className="create-product-header">Create a product listing</h1>
         <form
           action="/api/items"
           onSubmit={handleSubmit}
@@ -92,7 +92,7 @@ export default function CreateItem() {
           <div className="form-el">
             <p>Product Category</p>
             {submitted && errors.category && <p style={{color: 'red'}}>{errors.category}</p>}
-            <select value={category} onChange={(e) => setCategory(e.target.value)}>
+            <select value={category} className="product-category" onChange={(e) => setCategory(e.target.value)}>
               <option value="" disabled >Choose here</option>
               <option value='1'>Electronics</option>
               <option value='2'>Books</option>
@@ -112,7 +112,7 @@ export default function CreateItem() {
             />
           </div>
           <div className="form-el">
-            <p>Product Image</p>
+            <p className="form-image-p">Product Image</p>
             {submitted && errors.image && <p style={{color: 'red'}}>{errors.image}</p>}
             <input
               type="file"

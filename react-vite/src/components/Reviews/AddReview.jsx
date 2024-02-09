@@ -3,7 +3,7 @@ import AddReviewModal from "./AddReviewModal";
 function AddReview({itemId}) {
   return (
     <OpenModalButton
-      buttonText="Post Your Review"
+      buttonText="Write A Review"
       modalComponent={< AddReviewModal itemId={itemId}/>}
 
     />

@@ -3,3 +3,47 @@
   justify-content: center;
   margin-top: 85px;
 }
+
+.product-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-el {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-el > input {
+  width: 100%;
+  border: 1px #b3b3b3 solid;
+  color: rgb(66, 64, 64);
+  border-radius: 3px;
+  margin-bottom: 3px;
+}
+
+.create-product-button {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.product-butt {
+  padding: 10px 50px;
+  background-color: #fcd80f;
+  border-radius: 4px;
+  border: 1px solid grey;
+  color: black;
+  font-size: 15px;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+
+}
+
+.product-category {
+  border: 1px solid rgb(184, 178, 178);
+  border-radius: 3px;
+}

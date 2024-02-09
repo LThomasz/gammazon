@@ -21,13 +21,13 @@ function Reviews({reviews, change}) {
           return false
         }
       }
-    } else {
-      return true
     }
+    return true
   }
+
   return (
-    <div>
-      {check() && <div>
+    <div className="review-section">
+      {check() && <div className="pre-add-review-button">
         <AddReview itemId={item?.id}/>
       </div>}
       {reviews?.map((rev) => {

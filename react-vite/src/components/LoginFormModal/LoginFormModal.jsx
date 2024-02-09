@@ -58,6 +58,16 @@ function LoginFormModal() {
         <div className="log-in-button-div">
           <button type="submit" className="log-in-button">Log In</button>
         </div>
+        <div className="demo-user-button-div">
+          <button
+            type="submit"
+            className="demo-user-button"
+            onClick={() => {
+              setEmail('demo@aa.io');
+              setPassword('password')
+            }}
+          >Log in as Demo User</button>
+        </div>
       </form>
     </div>
     </>

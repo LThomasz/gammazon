@@ -8,6 +8,7 @@ import './SingleItem.css'
 
 function SingleItem() {
   const [state, setState] = useState(false);
+  const [loading, setLoading] = useState(true);
   const {productId} = useParams()
   const dispatch = useDispatch();
   const itemsObj = useSelector((state) => state.items)
@@ -32,11 +33,15 @@ function SingleItem() {
   }
 
   useEffect(() => {
+    setTimeout(() => setLoading(false), 50)
     dispatch(loadOneItemThunk(productId))
     dispatch(loadReviewsThunk(productId))
   }, [dispatch, state, productId])
 
-  if (!item) return null
+  if (loading) {
+    return null
+  }
+
   return (
     <>
       <div className="single-main-container">

@@ -14,22 +14,29 @@
 .edit-product-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .edit-product-form > div {
   display: flex;
   flex-direction: column;
-  align-items: center;
+
 }
 
 .edit-product-form > div > input {
+  width: 100%;
   padding: 2px 3px;
   border: 1px #b3b3b3 solid;
   color: rgb(66, 64, 64);
   border-radius: 3px;
   margin-bottom: 3px;
 }
+
+.edit-form-el {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 
 .edit-header {
   font-size: 40px;
@@ -60,8 +67,10 @@
   display: flex;
   flex-direction: column;
   border: 1px solid grey;
-  padding: 6px 6px 18px;
+  padding: 6px 8px 18px;
   border-radius: 5px;
+  width: 30%;
+  align-items: center;
 }
 
 .edit-form-image {
@@ -73,8 +82,14 @@
   align-self: flex-end;
   margin: 0px;
   font-size: 10px;
+  width: 14%;
 }
 
 .edit-form-x:hover {
   cursor: pointer;
+}
+
+.product-category {
+  border: 1px solid rgb(184, 178, 178);
+  border-radius: 3px;
 }
