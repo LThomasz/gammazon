@@ -96,7 +96,7 @@ export default function EditItem() {
           <div className="edit-form-el">
             <p>Product Category</p>
             {submitted && errors.category && <p style={{color: 'red'}}>{errors.category}</p>}
-            <select value={category} onChange={(e) => setCategory(e.target.value)}>
+            <select value={category} className="product-category" onChange={(e) => setCategory(e.target.value)}>
               <option value="" disabled >Choose here</option>
               <option value='1'>Electronics</option>
               <option value='2'>Books</option>

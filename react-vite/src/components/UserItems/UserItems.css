@@ -13,3 +13,14 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.listings-header {
+  align-self: center;
+}
+
+.empty-user-list-button {
+  padding: 10px 100px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  font-size: large;
+}
