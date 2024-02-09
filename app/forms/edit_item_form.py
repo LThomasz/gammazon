@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import StringField, IntegerField, SubmitField, DateTimeField
+from wtforms import StringField, IntegerField, SubmitField, DateTimeField, FloatField
 from wtforms.validators import DataRequired
 from ..api.aws_images import ALLOWED_EXTENSIONS
 from datetime import datetime
@@ -11,6 +11,6 @@ class EditItemForm(FlaskForm):
   name = StringField('Product Name', validators=[DataRequired()])
   image = FileField("Image",validators=[FileAllowed(list(ALLOWED_EXTENSIONS))])
   description = StringField('Description', validators=[DataRequired()])
-  price = IntegerField('Price', validators=[DataRequired()])
+  price = FloatField('Price', validators=[DataRequired()])
   created_at = DateTimeField('Current Date', default=datetime.utcnow, validators=[DataRequired()])
   submit = SubmitField("Create Product Listing")
