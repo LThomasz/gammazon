@@ -11,6 +11,9 @@
   border-radius: 3px;
 }
 
+.profile-dropdown:hover {
+  cursor: pointer;
+}
 .profile-user-info {
   cursor: default;
   font-size: 15px;

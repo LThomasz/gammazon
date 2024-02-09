@@ -36,6 +36,7 @@ function SingleItem() {
     dispatch(loadReviewsThunk(productId))
   }, [dispatch, state, productId])
 
+  if (!item) return null
   return (
     <>
       <div className="single-main-container">
