@@ -39,7 +39,7 @@ function Reviews({reviews, change}) {
           { user && user.id == rev.user_id &&
           <div className="review-buttons">
             <div className="edit-button">
-              <EditReview reviewId={rev.id} itemId={item?.id} change={change} review={rev}/>
+              <EditReview reviewId={rev.id} itemId={item?.id} review={rev}/>
             </div>
             <div className="delete-button">
               <DeleteReview reviewId={rev.id} itemId={item?.id} change={change}/>

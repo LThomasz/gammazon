@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import './EditReviewModal.css'
 import { useState, useEffect } from "react";
 
-export default function EditReviewModal({reviewId, itemId, change, currReview}) {
+export default function EditReviewModal({reviewId, itemId, currReview}) {
   const user = useSelector(state => state.session.user)
   const [review, setReview] = useState(`${currReview.review}`)
   const [activeRating, setActiveRating] = useState(`${currReview.rating}`);
