@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import AddReview from "./AddReview";
 import DeleteReview from "./DeleteReview"
 import "./Reviews.css"
+import EditReview from "./EditReview";
 function Reviews({reviews, change}) {
   const user = useSelector((state) => state.session.user)
   const itemsObj = useSelector((state) => state.items)
@@ -38,7 +39,7 @@ function Reviews({reviews, change}) {
           { user && user.id == rev.user_id &&
           <>
           <div className="edit-button">
-            <DeleteReview reviewId={rev.id} itemId={item?.id} change={change}/>
+            <EditReview reviewId={rev.id} itemId={item?.id} change={change} review={rev}/>
           </div>
           <div className="delete-button">
             <DeleteReview reviewId={rev.id} itemId={item?.id} change={change}/>

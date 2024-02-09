@@ -1,0 +1,63 @@
+.rating-input {
+  display: flex;
+}
+
+.rating-input .filled {
+  color: rgb(255, 208, 0);
+}
+
+.rating-input .empty {
+  color: rgb(133, 137, 141);
+}
+
+.edit-review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 360px;
+  height: 230px;
+}
+
+.edit-review-form  {
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+}
+
+.edit-review-form > input {
+  margin-top: 5px;
+  padding: 8px 3px;
+  border: 1px #b3b3b3 solid;
+  color: rgb(66, 64, 64);
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.edit-review-form > button {
+  margin-top: 5px;
+}
+
+.edit-review-header {
+  display: flex;
+  justify-content: center;
+}
+
+.edit-review-review {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-review-review > label {
+  padding-bottom: 2px;
+  font-size: large;
+}
+
+.edit-review-review > textarea {
+  padding-bottom: 20px;
+  margin-bottom: 5px;
+  resize: none;
+}
+
+.rating-input > label {
+  margin-left: 5px;
+}
