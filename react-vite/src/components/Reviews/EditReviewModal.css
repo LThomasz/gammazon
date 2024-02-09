@@ -10,7 +10,7 @@
   color: rgb(133, 137, 141);
 }
 
-.add-review-container {
+.edit-review-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,13 +18,13 @@
   height: 250px;
 }
 
-.add-review-form  {
+.edit-review-form  {
   display: flex;
   flex-direction: column;
   width: 330px;
 }
 
-.add-review-form > input {
+.edit-review-form > input {
   margin-top: 5px;
   padding: 8px 3px;
   border: 1px #b3b3b3 solid;
@@ -33,43 +33,41 @@
   margin-bottom: 10px;
 }
 
-.add-review-form > button {
+.edit-review-form > button {
   margin-top: 5px;
 }
 
-.add-review-header {
+.edit-review-header {
   display: flex;
   justify-content: center;
 }
 
-.add-review-review {
+.edit-review-review {
   display: flex;
   flex-direction: column;
 }
 
-
-.add-review-review > label {
+.edit-review-review > label {
   display: flex;
   padding-bottom: 2px;
   font-size: large;
 }
 
-.add-review-review > label > p {
- margin: 0px;
- padding-left: 5px;
- font-size: 14px;
- align-self: center;
- padding-top: 2px;
-}
+.edit-review-review > label > p {
+  margin: 0px;
+  padding-left: 5px;
+  font-size: 14px;
+  align-self: center;
+  padding-top: 2px;
+ }
 
-.add-review-review > textarea {
+.edit-review-review > textarea {
   padding-bottom: 20px;
   margin-bottom: 5px;
   resize: none;
 }
 
 .rating-input > label {
-  display: flex;
   margin-left: 5px;
 }
 
@@ -79,8 +77,8 @@
   font-size: 16px;
 }
 
-.add-review-submit-butt {
-  padding: 10px 110px;
+.edit-review-submit-butt {
+  padding: 10px 90px;
   background-color: #fcd80f;
   border-radius: 4px;
   border: 1px solid grey;

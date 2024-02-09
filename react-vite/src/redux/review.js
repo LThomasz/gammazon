@@ -18,10 +18,10 @@ const addReview = (review) => {
   }
 }
 
-const editReview = (reviewId) => {
+const editReview = (review) => {
   return {
     type: EDIT_REVIEW,
-    reviewId
+    review
   }
 }
 

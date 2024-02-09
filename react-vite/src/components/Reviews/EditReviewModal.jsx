@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addReviewThunk } from "../../redux/review";
 import { useModal } from "../../context/Modal";
-import './AddReviewModal.css'
+import { editReviewThunk } from "../../redux/review";
+import { useDispatch, useSelector } from "react-redux";
+import './EditReviewModal.css'
+import { useState, useEffect } from "react";
 
-export default function AddReviewModal({itemId}) {
+export default function EditReviewModal({reviewId, itemId, change, currReview}) {
   const user = useSelector(state => state.session.user)
-  const [review, setReview] = useState('')
-  const [activeRating, setActiveRating] = useState(0);
-  const [rating, setRating] = useState(0);
+  const [review, setReview] = useState(`${currReview.review}`)
+  const [activeRating, setActiveRating] = useState(`${currReview.rating}`);
+  const [rating, setRating] = useState(`${currReview.rating}`);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState("");
   const { closeModal } = useModal()
@@ -34,7 +34,7 @@ export default function AddReviewModal({itemId}) {
       //   console.log(i[0]+ ', ' + i[1])
       // }
 
-      await dispatch(addReviewThunk(formData)).then(closeModal())
+      await dispatch(editReviewThunk(formData, reviewId)).then(closeModal())
     }
 
   }
@@ -56,17 +56,18 @@ export default function AddReviewModal({itemId}) {
 
     setErrors(newErrors)
   }, [review, rating])
+
   return (
-    <div className="add-review-container">
+    <div className="edit-review-container">
       <form onSubmit={handleSubmit}
-        className="add-review-form"
-        action="/api/reviews/new-review"
+        className="edit-review-form"
+        action={`/api/reviews/${reviewId}/edit`}
         encType="multipart/form-data"
       >
-        <div className="add-review-header">
-          <h1>Add a written review</h1>
+        <div className="edit-review-header">
+          <h1>Edit a written review</h1>
         </div>
-        <div className="add-review-review">
+        <div className="edit-review-review">
           <label>
             Review
             {submitted && errors.review && <p style={{color: 'red'}}>{errors.review}</p>}
@@ -125,9 +126,9 @@ export default function AddReviewModal({itemId}) {
           </div>
         </div>
         <button
-          className="add-review-submit-butt"
+          className="edit-review-submit-butt"
           type="submit"
-        >Submit Your Review</button>
+        >Submit Your Edited Review</button>
       </form>
     </div>
   )

@@ -55,3 +55,26 @@
   cursor: pointer;
 
 }
+
+.edit-form-image-div {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  padding: 6px 6px 18px;
+  border-radius: 5px;
+}
+
+.edit-form-image {
+  align-self: center;
+  height: 50px;
+  width: 50px;
+}
+.edit-form-x {
+  align-self: flex-end;
+  margin: 0px;
+  font-size: 10px;
+}
+
+.edit-form-x:hover {
+  cursor: pointer;
+}

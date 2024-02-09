@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 360px;
-  height: 470px;
+  width: 440px;
+  height: 480px;
 }
 
 .sign-up-form {
   display: flex;
   flex-direction: column;
-  width: 330px;
+  width: 420px;
 }
 
 .sign-up-form > input {
@@ -58,5 +58,6 @@
   color: red;
   padding-left: 7px;
   margin: 0px;
+  font-size: 13px;
 
 }

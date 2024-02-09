@@ -6,7 +6,6 @@ function DeleteReview({reviewId, itemId, change}) {
       buttonText="Delete"
       modalComponent={<DeleteReviewModal reviewId={reviewId} itemId={itemId} change={change}
     />}
-
     />
   )
 }
