@@ -70,10 +70,6 @@ export default function CreateItem() {
 
       setImageLoading(true);
 
-      // for (let i of formData.entries()) {
-      //   console.log(i[0]+ ', ' + i[1])
-      // }
-
       const item = await dispatch(addItemThunk(formData))
       navigate(`/products/${item.id}`)
     }

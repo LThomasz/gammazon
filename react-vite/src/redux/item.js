@@ -88,8 +88,6 @@ export const addItemThunk = (item) => async (dispatch) => {
     dispatch(addItem(data))
     return data
   }
-  const data = await res.json();
-  console.log(data)
 
 }
 
@@ -104,8 +102,6 @@ export const editItemThunk = (item, itemId) => async (dispatch) => {
     dispatch(editItem(data))
     return data
   }
-  const data = await res.json()
-  console.log(data)
 }
 
 export const deleteItemThunk = (itemId) => async (dispatch) => {

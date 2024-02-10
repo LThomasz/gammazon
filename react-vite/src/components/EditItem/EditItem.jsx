@@ -19,7 +19,6 @@ export default function EditItem() {
   const [imageLoading, setImageLoading] = useState(false);
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
-  console.log(state)
 
   useEffect(() => {
     const newErrors = {};
@@ -73,10 +72,6 @@ export default function EditItem() {
       formData.append("price", price);
 
       setImageLoading(true);
-
-      // for (let i of formData.entries()) {
-      //   console.log(i[0]+ ', ' + i[1])
-      // }
 
       await dispatch(editItemThunk(formData, productId))
       navigate(`/products/${productId}`)
