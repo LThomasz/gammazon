@@ -33,8 +33,8 @@ function SingleItem() {
   }
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 100)
     dispatch(loadOneItemThunk(productId))
+    setTimeout(() => setLoading(false), 100)
     dispatch(loadReviewsThunk(productId))
   }, [dispatch, state, productId])
 
