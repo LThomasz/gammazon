@@ -33,7 +33,6 @@ function SignupFormModal() {
 
     if (serverResponse) {
       setErrors(serverResponse);
-      console.log(errors)
     } else {
       closeModal();
     }

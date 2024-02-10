@@ -30,10 +30,6 @@ export default function AddReviewModal({itemId}) {
       formData.append("rating", rating);
       formData.append("review", review);
 
-      // for (let i of formData.entries()) {
-      //   console.log(i[0]+ ', ' + i[1])
-      // }
-
       await dispatch(addReviewThunk(formData)).then(closeModal())
     }
 
