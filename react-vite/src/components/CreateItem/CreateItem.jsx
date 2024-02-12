@@ -86,8 +86,8 @@ export default function CreateItem() {
           encType="multipart/form-data"
         >
           <div className="form-el">
-            <p>Product Category</p>
-            {submitted && errors.category && <p style={{color: 'red'}}>{errors.category}</p>}
+            <p className="create-product-p">Product Category</p>
+            {submitted && errors.category && <p className="create-product-error-p" style={{color: 'red'}}>{errors.category}</p>}
             <select value={category} className="product-category" onChange={(e) => setCategory(e.target.value)}>
               <option value="" disabled >Choose here</option>
               <option value='1'>Electronics</option>
@@ -99,8 +99,8 @@ export default function CreateItem() {
             </select>
           </div>
           <div className="form-el">
-            <p>Product Name</p>
-            {submitted && errors.name && <p style={{color: 'red'}}>{errors.name}</p>}
+            <p className="create-product-p">Product Name</p>
+            {submitted && errors.name && <p className="create-product-error-p" style={{color: 'red'}}>{errors.name}</p>}
             <input
               type="text"
               className="product-name product-input"
@@ -108,8 +108,8 @@ export default function CreateItem() {
             />
           </div>
           <div className="form-el">
-            <p className="form-image-p">Product Image</p>
-            {submitted && errors.image && <p style={{color: 'red'}}>{errors.image}</p>}
+            <p className="form-image-p create-product-p">Product Image</p>
+            {submitted && errors.image && <p className="create-product-error-p" style={{color: 'red'}}>{errors.image}</p>}
             <input
               type="file"
               accept="image/*"
@@ -118,8 +118,8 @@ export default function CreateItem() {
             />
           </div>
           <div className="form-el">
-            <p>Product Description</p>
-            {submitted && errors.description && <p style={{color: 'red'}}>{errors.description}</p>}
+            <p className="create-product-p">Product Description</p>
+            {submitted && errors.description && <p className="create-product-error-p" style={{color: 'red'}}>{errors.description}</p>}
             <input
               type="text-area"
               className="product-description product-input"
@@ -127,8 +127,8 @@ export default function CreateItem() {
             />
           </div>
           <div className="form-el">
-            <p>Product Price</p>
-            {submitted && errors.price && <p style={{color: 'red'}}>{errors.price}</p>}
+            <p className="create-product-p">Product Price</p>
+            {submitted && errors.price && <p className="create-product-error-p" style={{color: 'red'}}>{errors.price}</p>}
             <input
               type="string"
               pattern="^[0-9]\d{0,9}(\.\d{1,3})?%?$"

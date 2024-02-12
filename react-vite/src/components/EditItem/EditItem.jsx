@@ -89,8 +89,8 @@ export default function EditItem() {
           encType="multipart/form-data"
         >
           <div className="edit-form-el">
-            <p>Product Category</p>
-            {submitted && errors.category && <p style={{color: 'red'}}>{errors.category}</p>}
+            <p className="edit-product-p">Product Category</p>
+            {submitted && errors.category && <p className="edit-product-error-p" style={{color: 'red'}}>{errors.category}</p>}
             <select value={category} className="product-category" onChange={(e) => setCategory(e.target.value)}>
               <option value="" disabled >Choose here</option>
               <option value='1'>Electronics</option>
@@ -102,8 +102,8 @@ export default function EditItem() {
             </select>
           </div>
           <div className="edit-form-el">
-            <p>Product Name</p>
-            {submitted && errors.name && <p style={{color: 'red'}}>{errors.name}</p>}
+            <p className="edit-product-p">Product Name</p>
+            {submitted && errors.name && <p className="edit-product-error-p" style={{color: 'red'}}>{errors.name}</p>}
             <input
               type="text"
               value={name}
@@ -114,7 +114,7 @@ export default function EditItem() {
           <div className="edit-form-el">
             {!clicked ? (
               <div className="edit-form-image-container">
-                <p>Product Image</p>
+                <p className="edit-product-p">Product Image</p>
                 <div className="edit-form-image-div">
                   <p
                     className="edit-form-x"
@@ -125,8 +125,8 @@ export default function EditItem() {
               </div>
             ) : (
               <>
-              <p>Product Image</p>
-              {submitted && errors.image && <p style={{color: 'red'}}>{errors.image}</p>}
+              <p className="edit-product-p">Product Image</p>
+              {submitted && errors.image && <p className="edit-product-error-p" style={{color: 'red'}}>{errors.image}</p>}
               <input
                 type="file"
 
@@ -139,8 +139,8 @@ export default function EditItem() {
 
           </div>
           <div className="edit-form-el">
-            <p>Product Description</p>
-            {submitted && errors.description && <p style={{color: 'red'}}>{errors.description}</p>}
+            <p className="edit-product-p">Product Description</p>
+            {submitted && errors.description && <p className="edit-product-error-p" style={{color: 'red'}}>{errors.description}</p>}
             <input
               type="text-area"
               value={description}
@@ -149,8 +149,8 @@ export default function EditItem() {
             />
           </div>
           <div className="edit-form-el">
-            <p>Product Price</p>
-            {submitted && errors.price && <p style={{color: 'red'}}>{errors.price}</p>}
+            <p className="edit-product-p">Product Price</p>
+            {submitted && errors.price && <p className="edit-product-error-p" style={{color: 'red'}}>{errors.price}</p>}
             <input
               type="string"
               pattern="^[0-9]\d{0,9}(\.\d{1,3})?%?$"
