@@ -14,6 +14,14 @@
 .edit-product-form {
   display: flex;
   flex-direction: column;
+  border: 1px solid rgba(128, 128, 128, 0.267);
+  padding: 3px 10px 10px;
+  border-radius: 4px;
+}
+
+.edit-product-form > div > p {
+  font-size: 20px;
+  margin: 18px 0px;
 }
 
 .edit-product-form > div {
@@ -29,6 +37,7 @@
   color: rgb(66, 64, 64);
   border-radius: 3px;
   margin-bottom: 3px;
+  box-sizing: border-box;
 }
 
 .edit-form-el {
@@ -61,6 +70,10 @@
   border: none;
   cursor: pointer;
 
+}
+
+.edit-form-image-container > p {
+  font-size: 20px;
 }
 
 .edit-form-image-div {

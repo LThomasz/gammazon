@@ -10,6 +10,17 @@
   align-items: center;
 }
 
+.product-form {
+  border: 1px solid rgba(128, 128, 128, 0.267);
+  padding: 3px 10px 10px;
+  border-radius: 4px;
+}
+
+.product-form > div > p {
+  font-size: 20px;
+  margin: 18px 0px;
+}
+
 .form-el {
   display: flex;
   flex-direction: column;
@@ -21,6 +32,7 @@
   color: rgb(66, 64, 64);
   border-radius: 3px;
   margin-bottom: 3px;
+  box-sizing: border-box;
 }
 
 .create-product-button {
