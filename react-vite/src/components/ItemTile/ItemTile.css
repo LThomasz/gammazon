@@ -3,11 +3,14 @@
   flex-direction: column;
   width: 23%;
   margin: 5px;
+  padding: 5px;
   box-sizing: border-box;
   flex-grow: 1;
 	flex-shrink: 0;
 	flex-basis: calc(25% - 10px);
-  max-width: 25%;
+  max-width: 23%;
+  border: 1px solid rgba(128, 128, 128, 0.267);
+  border-radius: 4px;
 
 }
 
@@ -21,4 +24,8 @@
   border-radius: 5px;
   height: 300px;
   object-fit: contain;
+}
+
+.item-name:hover {
+  color: rgb(230, 157, 0);
 }

@@ -23,10 +23,10 @@ export default function DeleteReviewModal({reviewId, itemId, change}) {
     <div className="delete-review-container">
       <h1>Confirm Delete</h1>
       <p>Are you sure you want to remove this review?</p>
-      <button style={{color: "white", backgroundColor: "red"}} onClick={deleteReview}>
+      <button className="delete-review-confirm-button" onClick={deleteReview}>
         Yes (Delete Review)
       </button>
-      <button style={{color: "white", backgroundColor: "darkgray"}} onClick={closeModal}>
+      <button className="delete-review-keep-button" onClick={closeModal}>
         No (Keep Review)
       </button>
     </div>

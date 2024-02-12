@@ -7,11 +7,14 @@
 
 .review > p {
   padding-left: 5px;
+  margin: 8px 1px;
 }
 
 .review-buttons {
   display: flex;
   gap: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
 }
 
 .pre-add-review-button > button{
@@ -27,4 +30,20 @@
   align-items: center;
   margin-top: 10px;
   flex-direction: column;
+}
+
+.edit-button > button {
+  width: 60px;
+  background-color: #fcd80f;
+  border-radius: 4px;
+  color: black;
+  border: none;
+}
+
+.delete-button > button {
+  width: 60px;
+  background-color: #fcd80f;
+  border-radius: 4px;
+  color: black;
+  border: none;
 }

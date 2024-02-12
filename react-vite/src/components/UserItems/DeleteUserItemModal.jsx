@@ -23,10 +23,10 @@ export default function DeleteUserItemModal({itemId, change}) {
     <div className="delete-item-container">
       <h1>Confirm Delete</h1>
       <p>Are you sure you want to remove this item?</p>
-      <button style={{color: "white", backgroundColor: "red"}} onClick={deleteItem}>
+      <button className="delete-item-confirm-button" onClick={deleteItem}>
         Yes (Delete Item)
       </button>
-      <button style={{color: "white", backgroundColor: "darkgray"}} onClick={closeModal}>
+      <button className="delete-item-keep-button" onClick={closeModal}>
         No (Keep Item)
       </button>
     </div>

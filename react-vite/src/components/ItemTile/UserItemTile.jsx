@@ -7,12 +7,12 @@ function UserItemTile({item, change}) {
     <div className="useritem-tile-container">
       <img src={`${item.image}`} className="useritem-image"/>
       <div className="useritem-info">
-        <p>{item.name}</p>
+        <p className="useritem-name">{item.name}</p>
         <p>$ {Number(item?.price).toFixed(2)}</p>
       </div>
-      <div>
+      <div className="useritem-button-div">
         <NavLink to={`/products/${item.id}/edit`} state={{fromUI: {item}}}>
-          <button>Edit</button>
+          <button className="useritem-edit-button">Edit</button>
         </NavLink>
         <DeleteUserItem itemId={item.id} change={change}/>
       </div>

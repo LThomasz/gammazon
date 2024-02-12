@@ -7,7 +7,7 @@ function ItemTile({item}) {
     <div className="item-tile-container" onClick={() => navigate(`/products/${item.id}`)}>
       <img src={`${item.image}`} className="item-image"/>
       <div className="item-info">
-        <p>{item.name}</p>
+        <p className="item-name">{item.name}</p>
         <p>$ {Number(item?.price).toFixed(2)}</p>
       </div>
     </div>
