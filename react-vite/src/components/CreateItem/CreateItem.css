@@ -16,14 +16,20 @@
   border-radius: 4px;
 }
 
-.product-form > div > p {
-  font-size: 20px;
-  margin: 18px 0px;
-}
+
 
 .form-el {
   display: flex;
   flex-direction: column;
+}
+
+.create-product-p {
+  font-size: 22px;
+}
+
+.create-product-error-p {
+  font-size: 15px;
+  margin: 5px 0px;
 }
 
 .form-el > input {
