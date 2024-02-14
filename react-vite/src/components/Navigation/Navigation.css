@@ -1,7 +1,37 @@
+.profile-dropdown-main-span {
+
+}
+
+.profile-button {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 10px 8px;
+  margin: 1px;
+}
+
+.profile-greeting-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-button > i {
+  padding-left: 3px;
+  color: #a1a1a1;
+}
+
+.profile-button:hover {
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  padding: 10px 7px;
+
+}
+
 .profile-dropdown {
   position: absolute;
-  top: 40px;
-  right: 30px;
+  top: 58px;
+  right: 20px;
   background-color: #c4bdbd;
   color: rgb(0, 0, 0);
   display: flex;
@@ -55,4 +85,14 @@ li {
 
 .list-item:hover {
   cursor: pointer;
+}
+
+.profile-greeting {
+  color: #FFFFFF;
+  margin: 0px;
+}
+
+.profile-greeting-label {
+  font-weight: bold;
+  font-size: 18px;
 }

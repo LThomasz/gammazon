@@ -37,7 +37,7 @@ function Navigation() {
           <span>
             <img src={logo} alt="" className="page-logo" onClick={() => navigate('/')}/>
           </span>
-          <span>
+          <span className="profile-dropdown-main-span">
             <ProfileButton />
           </span>
         </div>
