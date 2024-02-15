@@ -46,7 +46,7 @@ function ProfileButton() {
       <div onMouseEnter={() => setShowMenu(true)} className="profile-button">
         {/* <i className="fas fa-user-circle" /> */}
         <div className="profile-greeting-container">
-          <p className="profile-greeting"> {`Hello, ${user?.username}`} </p>
+          <p className="profile-greeting"> {user ? (`Hello, ${user?.username}`) : `Hello, Guest`} </p>
           <p className="profile-greeting profile-greeting-label"> Account & List </p>
         </div>
         <i className="fa-solid fa-caret-down"></i>
