@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
+import CartButton from "./CartButton";
 // import { useModal } from "../../context/Modal";
 // import { useSelector } from "react-redux";
 import logo from "../../../images/Gamma (1).png"
@@ -39,6 +40,7 @@ function Navigation() {
           </span>
           <span className="profile-dropdown-main-span">
             <ProfileButton />
+            <CartButton />
           </span>
         </div>
       </div>

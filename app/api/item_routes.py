@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, redirect, request
+from flask_login import current_user
 from app.models import Item, db
 from app.forms.item_form import ItemForm
 from app.forms.edit_item_form import EditItemForm
@@ -9,6 +10,7 @@ item_routes = Blueprint('item', __name__)
 @item_routes.route('/')
 def items():
   all_items = Item.query.all()
+  print(current_user.get_id())
   return {'items': [item.to_dict() for item in all_items]}
 
 @item_routes.route('/new-item')
