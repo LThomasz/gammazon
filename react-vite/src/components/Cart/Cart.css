@@ -1,0 +1,5 @@
+.cart-items-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 83px;
+}

@@ -51,7 +51,7 @@ function SingleItem() {
           </div>
           <div className="single-info-container">
             <h2>{`${item?.name}`}</h2>
-            <h3>{`${item?.created_at}`}</h3>
+            <h3>{`${new Date(item?.created_at).toDateString()}`}</h3>
             <h4>
               {`$ ${Number(item?.price).toFixed(2)} `}
               <i className="fa-solid fa-star"></i>
