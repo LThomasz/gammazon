@@ -30,7 +30,7 @@ Gammazon is an e-commerce website that sells a variety of lesser known items.
 - As an unauthorized user, I want to be able to log in to a Demo User account via clicking an easy to find button on both the signup and login pages.
 - When used I would like the Demo User to to log me in to a demo account with normal user access to the site.
 
-# 1. Products
+## 1. Products
 
 ### Create Products
 
@@ -61,7 +61,7 @@ Gammazon is an e-commerce website that sells a variety of lesser known items.
 - When clicking the yes option, it should permanently delete my listing.
 - When clicking the no option, the modal should close.
 
-# 2. Reviews
+## 2. Reviews
 
 ### Create Reviews
 
@@ -91,5 +91,47 @@ Gammazon is an e-commerce website that sells a variety of lesser known items.
 
 - As a logged in user, I want to be able to delete my reviews by clicking a delete button which is located next to the title of my review in the /products/:productId page.
 - When clicking the delete button, I want to permanently delete my review.
+
+## Feature List
+
+### 1. Products
+
+- Logged in users should be able to create a product.
+- Logged in or logged out users should be able to view all the products available.
+- Logged in or logged out users should be able to view a specific product.
+- Logged in users should be able to edit a product listing that was created by the user.
+- Logged in users should be able to delete product listings that were created by the user.
+
+### 2. Reviews
+- Logged in users should be able to create a review for a product.
+- Logged in or logged out users should be able to view the reviews on a product.
+- Logged in users should be able to edit a review that was made by the user.
+- Logged in users should be able to delete reviews that were made by the user.
+
+### 3. Cart
+
+- Logged in users should be able to add products to their cart.
+- Logged in users should be able to view all the products in their shopping cart.
+- Logged in users should be able to remove products from their shopping cart.
+- Logged in users should be able to make an order for the items in their shopping cart.
+
+### 4. Wishlist
+
+- Logged in users should be able to add a product to their wishlist.
+- Logged in users should be able to view all the products in their wishlist.
+- Logged in users should be able to remove a product from their wishlist.
+
+### 5. Bonus: Search
+
+- Logged in or logged out users should be able to search for products.
+- Logged in or logged out users should be able to see all results for their search.
+
+### 6. Bonus: Order History
+
+- Logged in users should be able to view order history.
+- Logged in users should be able to reorder a past purchase.
+
+
+
 
 
