@@ -64,7 +64,19 @@ const initialState = {}
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_CART_ITEMS: {
-      return state
+      const newState = { };
+      console.log(action)
+      return newState
+    }
+    case ADD_CART_ITEM: {
+      const newState = { ...state };
+      console.log(action)
+      return newState
+    }
+    case REMOVE_CART_ITEM: {
+      const newState = { ...state };
+      console.log(action)
+      return newState
     }
     default:
       return state
