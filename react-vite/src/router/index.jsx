@@ -9,6 +9,7 @@ import Reviews from '../components/Reviews/Reviews'
 import EditItem from '../components/EditItem/EditItem';
 import UserItems from '../components/UserItems/UserItems';
 import HomePage from '../components/HomePage/HomePage';
+import Cart from '../components/Cart/Cart';
 export const router = createBrowserRouter([
   {
     element: <Layout />,
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
       {
         path: "test",
         element: <Reviews />
+      },
+      {
+        path: "cart",
+        element: <Cart />
       }
     ],
   },

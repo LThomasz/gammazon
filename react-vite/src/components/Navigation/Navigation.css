@@ -1,7 +1,39 @@
+.profile-dropdown-main-span {
+  display: flex;
+  align-items: center;
+}
+
+.profile-button {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 10px 8px;
+  margin: 2px;
+}
+
+.profile-greeting-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-button > i {
+  padding-left: 3px;
+  color: #a1a1a1;
+}
+
+.profile-button:hover {
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  padding: 10px 7px;
+  cursor: pointer;
+
+}
+
 .profile-dropdown {
   position: absolute;
-  top: 40px;
-  right: 30px;
+  top: 58px;
+  right: 80px;
   background-color: #c4bdbd;
   color: rgb(0, 0, 0);
   display: flex;
@@ -36,7 +68,7 @@
   flex-direction: row;
   justify-content: center;
   background-color: #131921;
-  padding: 2px 30px;
+  padding: 2px 20px;
 }
 
 li {
@@ -54,5 +86,34 @@ li {
 }
 
 .list-item:hover {
+  cursor: pointer;
+}
+
+.profile-greeting {
+  color: #FFFFFF;
+  margin: 0px;
+}
+
+.profile-greeting-label {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.shopping-cart {
+  height: 40px;
+  color: #FFFFFF;
+  padding-left: 4px;
+}
+
+.cart-link-container {
+  border-radius: 5px;
+  padding: 8px;
+  margin: 2px;
+}
+
+.cart-link-container:hover {
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  padding: 8px 7px 8px 7px;
   cursor: pointer;
 }

@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: ee742784e669
+Revision ID: 32576a4cd8e3
 Revises:
-Create Date: 2024-02-01 09:54:14.864053
+Create Date: 2024-02-16 09:52:17.178506
 
 """
 from alembic import op
@@ -12,7 +12,7 @@ import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 # revision identifiers, used by Alembic.
-revision = 'ee742784e669'
+revision = '32576a4cd8e3'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -37,14 +37,6 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
-    op.create_table('carts',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('created_at', sa.DateTime(), nullable=False),
-    sa.Column('updated_at', sa.DateTime(), nullable=False),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
     op.create_table('items',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -66,14 +58,14 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('cart_items',
-    sa.Column('cart_id', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('item_id', sa.Integer(), nullable=False),
     sa.Column('price', sa.Float(precision=5, asdecimal=2), nullable=False),
     sa.Column('quantity', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=False),
-    sa.ForeignKeyConstraint(['cart_id'], ['carts.id'], ),
     sa.ForeignKeyConstraint(['item_id'], ['items.id'], ),
-    sa.PrimaryKeyConstraint('cart_id', 'item_id')
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('user_id', 'item_id')
     )
     op.create_table('order_items',
     sa.Column('order_id', sa.Integer(), nullable=False),
@@ -116,7 +108,6 @@ def downgrade():
     op.drop_table('cart_items')
     op.drop_table('orders')
     op.drop_table('items')
-    op.drop_table('carts')
     op.drop_table('users')
     op.drop_table('categories')
     # ### end Alembic commands ###
