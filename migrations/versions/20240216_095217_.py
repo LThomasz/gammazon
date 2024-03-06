@@ -93,7 +93,6 @@ def upgrade():
     if environment == "production":
         op.execute(f"ALTER TABLE categories SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE carts SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE items SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE orders SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE cart_items SET SCHEMA {SCHEMA};")
