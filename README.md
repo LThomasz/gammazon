@@ -108,6 +108,8 @@ Gammazon is an e-commerce website that sells a variety of lesser known items.
 - Logged in users should be able to edit a review that was made by the user.
 - Logged in users should be able to delete reviews that were made by the user.
 
+## Future Features
+
 ### 3. Cart
 
 - Logged in users should be able to add products to their cart.
@@ -121,12 +123,12 @@ Gammazon is an e-commerce website that sells a variety of lesser known items.
 - Logged in users should be able to view all the products in their wishlist.
 - Logged in users should be able to remove a product from their wishlist.
 
-### 5. Bonus: Search
+### 5. Search
 
 - Logged in or logged out users should be able to search for products.
 - Logged in or logged out users should be able to see all results for their search.
 
-### 6. Bonus: Order History
+### 6. Order History
 
 - Logged in users should be able to view order history.
 - Logged in users should be able to reorder a past purchase.
