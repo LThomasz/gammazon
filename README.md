@@ -2,133 +2,141 @@
 
 Gammazon is an e-commerce website that sells a variety of lesser known items.
 
-## Getting started
+## Live Link
+[Gammazon](gammazon.onrender.com/)
 
-1. Clone this repository (only this branch).
+## User Stories
 
-2. Install dependencies.
+## Users
 
-   ```bash
-   pipenv install -r requirements.txt
-   ```
+### Sign Up
 
-3. Create a __.env__ file based on the example with proper settings for your
-   development environment.
+- As an unauthorized user I want to be able to create a new account through a sign-up form which can be navigated to by clicking on an option in a profile menu dropdown on the top right of every page in the site.
+- When on the /signup page, I want to be able to fill in my email, username, and password in a user friendly form.
+- On successful submission by clicking a Sign Up button, I want to be logged in to the site.
+- If I enter invalid or incorrect data, I would like to be prompted to fix it in a user friendly way.
 
-4. Make sure the SQLite3 database connection URL is in the __.env__ file.
+### Log In
 
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention.**
+- As an unauthorized user with an account, I want to be able to log in to my account through a log-in form which can be navigated to by clicking on an option in a profile menu dropdown on the top right of every page in the site.
+- When on the /login page, I want to be able to fill in my email and password in a user friendly form.
+- On successful submission by clicking a Login button, I want to be logged in to the site.
+- If I enter invalid or incorrect data, I would like to be informed of which data was incorrect in a user friendly way.
 
-6. Get into your pipenv, migrate your database, seed your database, and run your
-   Flask app:
+### Log Out 
 
-   ```bash
-   pipenv shell
-   ```
+- As a logged in user, I want to be able to log out by clicking on a logout option which can be found in a profile menu dropdown on the top right of every page in the site.
+- I want to be able to log out on any page of the website and be redirected to the home page.
 
-   ```bash
-   flask db upgrade
-   ```
+### Demo User
 
-   ```bash
-   flask seed all
-   ```
+- As an unauthorized user, I want to be able to log in to a Demo User account via clicking an easy to find button on both the signup and login pages.
+- When used I would like the Demo User to to log me in to a demo account with normal user access to the site.
 
-   ```bash
-   flask run
-   ```
+## 1. Products
 
-7. The React frontend has no styling applied. Copy the __.css__ files from your
-   Authenticate Me project into the corresponding locations in the
-   __react-vite__ folder to give your project a unique look.
+### Create Products
 
-8. To run the React frontend in development, `cd` into the __react-vite__
-   directory and run `npm i` to install dependencies. Next, run `npm run build`
-   to create the `dist` folder. The starter has modified the `npm run build`
-   command to include the `--watch` flag. This flag will rebuild the __dist__
-   folder whenever you change your code, keeping the production version up to
-   date.
+- As a logged in user, I want to be able to create a product for sale through a create product form.
+- I should able to navigate to the create product page by clicking the create product option in the profile dropdown menu in the top right of the site.
+- When on the /new-product page, I want to be able to fill out a clearly labeled form with product information and submit it by clicking a Create Product button.
+- If I leave out necessary data or input invalid data, I would like to be prompted to fix it with error messages that appear below the respective input boxes.
 
-## Deployment through Render.com
 
-First, recall that Vite is a development dependency, so it will not be used in
-production. This means that you must already have the __dist__ folder located in
-the root of your __react-vite__ folder when you push to GitHub. This __dist__
-folder contains your React code and all necessary dependencies minified and
-bundled into a smaller footprint, ready to be served from your Python API.
+### View Products
 
-Begin deployment by running `npm run build` in your __react-vite__ folder and
-pushing any changes to GitHub.
+- As a logged in or logged out user, I want to be able to view all products on the /all-products page, which can be navigated to by clicking an All Products button that is located to the right of the search bar on the top of the page.
+- As a logged in or logged out user, I want to be able to view a product's information and reviews on the product on the /products/:productId page, which can be navigated to by clicking on the tile for the product located in the /all-products page.
+- The /products/:productId page should contain a picture of the product, the name of the product, the username of the user that is selling the product and when the listing was created, the average stars of the reviews of the product, and the description.
+- As a logged in user, I want to be able to view all of my product listings on the /my-products page, which can be navigated to by clicking a My Products option in the profile dropdown in the top right.
 
-Refer to your Render.com deployment articles for more detailed instructions
-about getting started with [Render.com], creating a production database, and
-deployment debugging tips.
+### Edit Products
 
-From the Render [Dashboard], click on the "New +" button in the navigation bar,
-and click on "Web Service" to create the application that will be deployed.
+- As a logged in user, I want to be able to edit my product listings by clicking an Edit button which is located on the product's tile in the /my-products page.
+- When clicking the Edit button, I want to be brought to the /products/:productId/edit page to edit my product listing with a clearly labeled form prepopulated with the old information.
+- I want to be able to submit the information with a Confirm Changes button located on the bottom of the page.
+- If I leave out necessary data or input invalid data, I would like to be prompted to fix it with error messages that appear below the respective input boxes.
 
-Select that you want to "Build and deploy from a Git repository" and click
-"Next". On the next page, find the name of the application repo you want to
-deploy and click the "Connect" button to the right of the name.
+### Delete Products
 
-Now you need to fill out the form to configure your app. Most of the setup will
-be handled by the __Dockerfile__, but you do need to fill in a few fields.
+- As a logged in user, I want to be able to permanently delete a created product listing by clicking a Delete button, which is located on the products's tile in the /my-products page.
+- When clicking the Delete button, I want to have a modal popup that asks whether I am sure I want to delete my product.
+- When clicking the yes option, it should permanently delete my listing.
+- When clicking the no option, the modal should close.
 
-Start by giving your application a name.
+## 2. Reviews
 
-Make sure the Region is set to the location closest to you, the Branch is set to
-"main", and Runtime is set to "Docker". You can leave the Root Directory field
-blank. (By default, Render will run commands from the root directory.)
+### Create Reviews
 
-Select "Free" as your Instance Type.
+- As a logged in user, I want to be able to create a review for a product on the /products/:productId page by clicking a Post a Review button.
+- I want to be able to input my review by typing out a title and description into text boxes and input my 1-5 star rating by clicking on the number of stars on a star bar above the text box.
+- Both text boxes and the star input should be located just below the Reviews header on the /products/:productId.
+- I want to be able to submit my review by clicking a Submit Review button located below the review inputs.
+- If I leave out necessary data or input invalid data, I would like to be prompted to fix it with error messages that appear below the respective input boxes.
+- As a logged in user I want to be able to see my review on the top of the list of reviews after submitting.
+- As a logged out user if I click on the inputs or submit button I want to be prompted to login or signup with a modal which contains links to both the /login and /signup pages.
 
-### Add environment variables
+### View Reviews
 
-In the development environment, you have been securing your environment
-variables in a __.env__ file, which has been removed from source control (i.e.,
-the file is gitignored). In this step, you will need to input the keys and
-values for the environment variables you need for production into the Render
-GUI.
+- As a logged in or logged out user, I want to be able to view all reviews for a product on the /products/:productId page under the product information section.
+- The reviews should be ordered from most recent to least recent.
 
-Add the following keys and values in the Render GUI form:
+### Edit Reviews
 
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
+- As a logged in user, I want to be able to edit my reviews by clicking an Edit button located to the right of my review's title on the /products/:productId page which will open a modal containing an edit review form.
+- When pressing the Edit button, I want to be prompted with a modal that contains an edit review form prepopulated with the old review information.
+- I want to be able to submit the edited review with an Update Review button that is located on the bottom of the modal.
+- If I leave out necessary data or input invalid data, I would like to be prompted to fix it with error messages that appear below the respective input boxes.
+- If I want to exit the modal without making changes, I should be able to click a cancel button located next to the Update Review button on the bottom of the modal.
 
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
 
-Add the following keys and values:
+### Delete Reviews
 
-- DATABASE_URL (copy value from the **External Database URL** field)
+- As a logged in user, I want to be able to delete my reviews by clicking a delete button which is located next to the title of my review in the /products/:productId page.
+- When clicking the delete button, I want to permanently delete my review.
 
-**Note:** Add any other keys and values that may be present in your local
-__.env__ file. As you work to further develop your project, you may need to add
-more environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment.
+## Feature List
 
-### Deploy
+### 1. Products
 
-Now you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your Dockerfile
-commands being executed and any errors that occur.
+- Logged in users should be able to create a product.
+- Logged in or logged out users should be able to view all the products available.
+- Logged in or logged out users should be able to view a specific product.
+- Logged in users should be able to edit a product listing that was created by the user.
+- Logged in users should be able to delete product listings that were created by the user.
 
-When deployment is complete, open your deployed site and check to see that you
-have successfully deployed your Flask application to Render! You can find the
-URL for your site just below the name of the Web Service at the top of the page.
+### 2. Reviews
+- Logged in users should be able to create a review for a product.
+- Logged in or logged out users should be able to view the reviews on a product.
+- Logged in users should be able to edit a review that was made by the user.
+- Logged in users should be able to delete reviews that were made by the user.
 
-**Note:** By default, Render will set Auto-Deploy for your project to true. This
-setting will cause Render to re-deploy your application every time you push to
-main, always keeping it up to date.
+## Future Features
 
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
+### 3. Cart
 
-# Link to Live Site
-(to be added)
+- Logged in users should be able to add products to their cart.
+- Logged in users should be able to view all the products in their shopping cart.
+- Logged in users should be able to remove products from their shopping cart.
+- Logged in users should be able to make an order for the items in their shopping cart.
+
+### 4. Wishlist
+
+- Logged in users should be able to add a product to their wishlist.
+- Logged in users should be able to view all the products in their wishlist.
+- Logged in users should be able to remove a product from their wishlist.
+
+### 5. Search
+
+- Logged in or logged out users should be able to search for products.
+- Logged in or logged out users should be able to see all results for their search.
+
+### 6. Order History
+
+- Logged in users should be able to view order history.
+- Logged in users should be able to reorder a past purchase.
+
+
+
+
+
