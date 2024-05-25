@@ -7,21 +7,21 @@ import Reviews from "../Reviews/Reviews";
 import './SingleItem.css'
 
 function SingleItem() {
-  // const options = (function opMaker() {
-  //   let arr = []
-  //   for (let i = 1; i < 31; i++) {
-  //     arr.push(i)
-  //   }
-  //   return arr
-  // })();
+  const options = (function opMaker() {
+    let arr = []
+    for (let i = 1; i < 31; i++) {
+      arr.push(i)
+    }
+    return arr
+  })();
   const [state, setState] = useState(false);
   const [loading, setLoading] = useState(true);
-  // const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
   const {productId} = useParams()
   const dispatch = useDispatch();
   const itemsObj = useSelector((state) => state.items)
   const reviewsObj = useSelector((state) => state.reviews)
-  // const user = useSelector(state => state.session.user)
+  const user = useSelector(state => state.session.user)
   const item = Object.values(itemsObj)[0]
   const reviews = Object.values(reviewsObj)
   const numReviews = reviews.length
@@ -46,15 +46,15 @@ function SingleItem() {
     setTimeout(() => setLoading(false), 400)
     dispatch(loadReviewsThunk(productId))
   }, [dispatch, state, productId])
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  //   const formData = new FormData();
-  //   formData.append("user_id", user.id);
-  //   formData.append("item_id", item.id);
-  //   formData.append("quantity", parseInt(quantity));
-  //   formData.append("price", parseInt(item?.price)*parseInt(quantity));
-  // }
+    const formData = new FormData();
+    formData.append("user_id", user.id);
+    formData.append("item_id", item.id);
+    formData.append("quantity", parseInt(quantity));
+    formData.append("price", parseInt(item?.price)*parseInt(quantity));
+  }
 
   if (loading) {
     return null
@@ -78,7 +78,7 @@ function SingleItem() {
             <p>{`${item?.description}`}</p>
           </div>
         </div>
-        {/* <div className="single-cart-container">
+        <div className="single-cart-container">
           <form
             action="/api/cart_items"
             onSubmit={handleSubmit}
@@ -100,7 +100,7 @@ function SingleItem() {
               > Add to Cart</button>
           </div>
           </form>
-        </div> */}
+        </div>
       </div>
       <div>
         <Reviews reviews={reviews} change={changeState}/>
