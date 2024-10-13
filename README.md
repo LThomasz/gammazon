@@ -3,7 +3,7 @@
 Gammazon is an e-commerce website that sells a variety of lesser known items.
 
 ## Live Link
-[Gammazon](gammazon.onrender.com/)
+[Gammazon](https://gammazon.onrender.com/)
 
 ## User Stories
 
